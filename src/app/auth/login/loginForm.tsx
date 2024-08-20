@@ -1,19 +1,26 @@
 "use client";
 import AspectRatio from "@/components/AspectRatio";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
 export default function LoginForm(): ReactNode {
+  const router = useRouter();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     setVisible(true);
   }, []);
 
+  const actionHandler = (e: any) => {
+    e.preventDefault();
+    router.push("/admin");
+  };
+
   if (!visible) return;
 
   return (
-    <form className="pt-40 flex flex-col gap-2 pb-2">
+    <form className="pt-40 flex flex-col gap-2 pb-2" onSubmit={actionHandler}>
       <div className="flex flex-col gap-2 items-center">
         <AspectRatio src="/auth-logo.svg" size={{ height: 36 }} />
         <h2 className="text-2xl text-neutral-800 mt-4">
@@ -25,11 +32,11 @@ export default function LoginForm(): ReactNode {
       </div>
       <div className="input-group mt-10">
         <label>Email</label>
-        <input type="email" placeholder="Insira seu email" required />
+        <input type="email" placeholder="Insira seu email" />
       </div>
       <div className="input-group">
         <label>Senha</label>
-        <input type="password" required placeholder="Insira sua senha" />
+        <input type="password" placeholder="Insira sua senha" />
       </div>
       <div className="flex justify-between">
         <div className="input-group">

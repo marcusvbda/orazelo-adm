@@ -35,3 +35,7 @@ a {
     @apply bg-neutral-900 border-neutral-900 text-white;
   }
 }
+
+.mocked {
+  @apply cursor-not-allowed border-4 border-red-700 border-dashed;
+}
