@@ -1,4 +1,21 @@
+"use client";
 import Sidebar from "@/components/theme/sidebar";
+import ThemeContextProvider, { ThemeContext } from "@/context/themeContext";
+import { ReactNode, useContext } from "react";
+
+const Content = ({ children }: { children: ReactNode }) => {
+  const { sidebarCollapsed } = useContext(ThemeContext);
+
+  return (
+    <div
+      className={`w-full transition-all duration-200 flex flex-col ml-0 ${
+        sidebarCollapsed ? "ml-0 md:ml-[144px]" : "ml-0 md:ml-[264px]"
+      }`}
+    >
+      {children}
+    </div>
+  );
+};
 
 export default function AdminLayout({
   children,
@@ -7,8 +24,10 @@ export default function AdminLayout({
 }>) {
   return (
     <main className="flex w-full h-full">
-      <Sidebar />
-      <div className="w-full flex flex-col ml-0 md:ml-36">{children}</div>
+      <ThemeContextProvider>
+        <Sidebar />
+        <Content>{children}</Content>
+      </ThemeContextProvider>
     </main>
   );
 }

@@ -1,3 +1,4 @@
+"use client";
 import Card from "@/components/Card";
 import Navbar from "@/components/theme/navbar";
 import { ReactNode } from "react";
@@ -18,7 +19,7 @@ export default function LoginPage(): ReactNode {
               <Card className="bg-[url('/mock/dashboard/progress-chart.svg')] bg-no-repeat bg-cover min-h-[380px] bg-center mocked"></Card>
             </div>
           </div>
-          <Card className="bg-[url('/mock/dashboard/dashboard-table.svg')] bg-no-repeat bg-contain bg-top min-h-[484px] bg-center mocked"></Card>
+          <Card className="bg-[url('/mock/dashboard/dashboard-table.svg')] bg-no-repeat bg-contain min-h-[484px] bg-center mocked"></Card>
         </div>
       </div>
     </div>

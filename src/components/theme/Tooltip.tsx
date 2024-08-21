@@ -7,12 +7,14 @@ interface IProps {
   children: ReactNode;
   text: string;
   position?: "bottom" | "left" | "right" | "top";
+  disabled?: boolean;
 }
 
 export default function Tooltip({
   children,
   text,
   position = "bottom",
+  disabled = false,
 }: IProps): ReactNode {
   const [isVisible, setIsVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState<{
@@ -22,7 +24,7 @@ export default function Tooltip({
   const tooltipRef = useRef<HTMLSpanElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const showTooltip = () => text && setIsVisible(true);
+  const showTooltip = () => text && !disabled && setIsVisible(true);
   const hideTooltip = () => setIsVisible(false);
 
   useEffect(() => {
@@ -55,6 +57,8 @@ export default function Tooltip({
       setTooltipPosition({ top: newTop, left: newLeft });
     }
   }, [isVisible, position]);
+
+  if (disabled) return children;
 
   return (
     <div

@@ -1,7 +1,7 @@
 const menuItems = [
   {
     href: "/admin",
-    label: "Home",
+    label: "Dashboard",
     rawIcon: (
       <svg
         width="58"
@@ -35,7 +35,7 @@ const menuItems = [
   },
   {
     href: "/admin/profile",
-    label: "Profile",
+    label: "Perfil",
     rawIcon: (
       <svg
         width="28"
@@ -59,7 +59,7 @@ const menuItems = [
   },
   {
     href: "/admin/schedules",
-    label: "Schedules",
+    label: "Consultas",
     rawIcon: (
       <svg
         width="58"
@@ -94,7 +94,7 @@ const menuItems = [
   },
   {
     href: "/admin/users",
-    label: "Users",
+    label: "Pacientes",
     rawIcon: (
       <svg
         width="58"
@@ -127,7 +127,7 @@ const menuItems = [
   },
   {
     href: "/admin/charts",
-    label: "Gráficos",
+    label: "Relatórios",
     rawIcon: (
       <svg
         width="58"
@@ -162,7 +162,7 @@ const menuItems = [
   },
   {
     href: "/admin/list-schedules",
-    label: "Agendamentos",
+    label: "Conteúdos",
     rawIcon: (
       <svg
         width="58"
@@ -209,7 +209,7 @@ const menuItems = [
   },
   {
     href: "/admin/duvidas",
-    label: "Dúvidas",
+    label: "Suporte",
     rawIcon: (
       <svg
         width="58"
