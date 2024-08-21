@@ -26,7 +26,7 @@ const NavLink = ({
   size = { height: 56 },
 }: INavLink) => {
   return (
-    <Tooltip text={label}>
+    <Tooltip text={label} position="right">
       <Link
         href={href}
         className={`cursor-pointer rounded-xl size-14 min-h-14 flex items-center justify-center ${className} ${
