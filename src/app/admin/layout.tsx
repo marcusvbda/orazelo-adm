@@ -1,5 +1,4 @@
-import Navbar from "./navbar";
-import Sidebar from "./sidebar";
+import Sidebar from "@/components/theme/sidebar";
 
 export default function AdminLayout({
   children,
@@ -9,12 +8,7 @@ export default function AdminLayout({
   return (
     <main className="flex w-full h-full">
       <Sidebar />
-      <div className="w-full flex flex-col ml-0 md:ml-36">
-        <Navbar />
-        <div className="relative top-[-100px] overflow-y-auto px-8 md:px-20 py-8">
-          {children}
-        </div>
-      </div>
+      <div className="w-full flex flex-col ml-0 md:ml-36">{children}</div>
     </main>
   );
 }
