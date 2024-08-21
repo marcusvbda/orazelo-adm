@@ -22,7 +22,7 @@ export default function LoginForm(): ReactNode {
   return (
     <form className="pt-40 flex flex-col gap-2 pb-2" onSubmit={actionHandler}>
       <div className="flex flex-col gap-2 items-center">
-        <AspectRatio src="/auth-logo.svg" size={{ height: 36 }} />
+        <AspectRatio src="/logo.svg" size={{ height: 36 }} />
         <h2 className="text-2xl text-neutral-800 mt-4">
           Bem vindo(a) de volta!
         </h2>

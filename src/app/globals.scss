@@ -39,3 +39,13 @@ a {
 .mocked {
   @apply cursor-not-allowed border-4 border-red-700 border-dashed;
 }
+
+.thin-scrollbar {
+  scrollbar-width: none; /* Para Firefox */
+  -ms-overflow-style: none; /* Para Internet Explorer e Edge */
+
+  &::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+  }
+}
