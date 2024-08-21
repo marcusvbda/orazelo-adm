@@ -74,7 +74,7 @@ export default function Tooltip({
         createPortal(
           <span
             ref={tooltipRef}
-            className={`absolute z-50 transform px-2 py-1 bg-neutral-800/80 text-white rounded-lg text-sm transition-opacity duration-200 opacity-100`}
+            className={`fixed z-50 transform px-2 py-1 bg-neutral-800/80 text-white rounded-lg text-sm transition-opacity duration-200 opacity-100`}
             style={{ top: tooltipPosition.top, left: tooltipPosition.left }}
           >
             {text}

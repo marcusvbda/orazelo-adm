@@ -4,8 +4,8 @@ import AspectRatio from "../AspectRatio";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import menuItems from "@/constants/menuItems";
-import Tooltip from "./Tooltip";
 import { ThemeContext } from "@/context/themeContext";
+import Tooltip from "../Tooltip";
 
 interface INavLink {
   label?: string;
