@@ -1,5 +1,5 @@
 "use client";
-import Sidebar from "@/components/theme/sidebar";
+import Sidebar from "@/components/sidebar";
 import ThemeContextProvider, { ThemeContext } from "@/context/themeContext";
 import { ReactNode, useContext } from "react";
 

@@ -1,13 +1,13 @@
 "use client";
 import Card from "@/components/Card";
-import Navbar from "@/components/theme/navbar";
+import Navbar from "@/components/navbar";
 import { ReactNode } from "react";
 
 export default function LoginPage(): ReactNode {
   return (
     <div className="flex flex-col">
       <Navbar />
-      <div className="relative top-[-100px] overflow-y-auto px-8 md:px-20 py-8">
+      <div className="relative top-[-100px] overflow-y-auto container">
         <div className="flex flex-col gap-4">
           <div className="w-full flex-col md:flex-row flex gap-4">
             <div className="flex-1 flex flex-col gap-4">

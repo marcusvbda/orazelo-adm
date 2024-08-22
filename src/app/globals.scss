@@ -49,3 +49,7 @@ a {
     height: 1px;
   }
 }
+
+.container {
+  @apply p-8 md:px-10;
+}

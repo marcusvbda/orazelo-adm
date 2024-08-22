@@ -1,15 +1,27 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 export const ThemeContext = createContext<any>({});
 
 export default function ThemeContextProvider({ children }: any): ReactNode {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setScreenWidth(window.innerWidth);
+      if (window.innerWidth < 768) {
+        setSidebarCollapsed(true);
+      }
+    });
+  }, []);
 
   return (
     <ThemeContext.Provider
       value={{
         sidebarCollapsed,
         setSidebarCollapsed,
+        screenWidth,
+        setScreenWidth,
       }}
     >
       {children}
