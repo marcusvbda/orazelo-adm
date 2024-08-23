@@ -5,7 +5,7 @@ export const ThemeContext = createContext<any>({});
 
 export default function ThemeContextProvider({ children }: any): ReactNode {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(
-    window.innerWidth < mdBreakpoint
+    (window ? window.innerWidth : 0) < mdBreakpoint
   );
 
   useEffect(() => {
