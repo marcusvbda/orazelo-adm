@@ -14,7 +14,7 @@ export default function EditProfilePage(): ReactNode {
         }
         description="Edite suas informações pessoais e adicionais"
       />
-      <div className="relative top-[-100px] overflow-y-auto container">
+      <div className="relative top-[-100px] overflow-y-auto theme-container">
         <div className="flex flex-col gap-4">
           <Card className="bg-[url('/mock/profile/edit-profile.svg')] bg-no-repeat bg-contain bg-top min-h-[818px] mocked"></Card>
         </div>

@@ -14,7 +14,7 @@ export default function ProfilePage(): ReactNode {
         }
         description="Veja e edite suas informações pessoais e adicionais"
       />
-      <div className="relative top-[-100px] overflow-y-auto container">
+      <div className="relative top-[-100px] overflow-y-auto theme-container">
         <div className="flex flex-col gap-4">
           <Card className="bg-[url('/mock/profile/card-1.svg')] bg-no-repeat bg-contain bg-top min-h-[307px] mocked"></Card>
           <div className="w-full flex-col md:flex-row flex gap-4">
