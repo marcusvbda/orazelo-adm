@@ -1,16 +1,13 @@
 "use client";
-import { ReactNode, useContext } from "react";
+import { ReactNode } from "react";
 import AspectRatio from "./AspectRatio";
 import Link from "next/link";
-import { ThemeContext } from "@/context/themeContext";
 
 interface IProps {
   text?: ReactNode;
   description?: ReactNode;
 }
 const NavbarActions = () => {
-  const { isMobile } = useContext(ThemeContext);
-
   return (
     <div className="flex-1 order-0 md:order-1 min-h-16 flex items-center gap-2 justify-end">
       <div className="w-60 relative">
@@ -30,7 +27,7 @@ const NavbarActions = () => {
         className="bg-white flex items-center rounded-3xl px-4 py-3 text-sm text-primary-300 font-semibold gap-2 ml-0 md:ml-3"
       >
         <AspectRatio src="/calendar.svg" size={{ height: 20 }} />
-        {isMobile ? "Nova consulta" : null}
+        <span className="hidden md:block">Nova consulta</span>
       </Link>
     </div>
   );

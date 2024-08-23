@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+export const mdBreakpoint = 1100;
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        md: `${mdBreakpoint}px`,
+      },
       colors: {
         primary: "rgb(0, 186, 201,<alpha-value>)",
         "primary-100": "rgb(204, 243, 245,<alpha-value>)",

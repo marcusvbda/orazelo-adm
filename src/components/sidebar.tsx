@@ -64,7 +64,7 @@ const ColapseBtn = (): ReactNode => {
         e.preventDefault(),
         setSidebarCollapsed(!sidebarCollapsed),
       ]}
-      className="bg-white size-[44px] absolute right-[-22px] items-center justify-center flex rounded-full"
+      className="bg-white size-[44px] absolute right-[-60px] md:right-[-22px] items-center justify-center flex rounded-full"
     >
       <AspectRatio
         src="/collapse-icon.svg"
