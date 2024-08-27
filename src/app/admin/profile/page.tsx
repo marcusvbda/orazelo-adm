@@ -5,6 +5,8 @@ import BackLink from "@/components/back-link";
 import Card from "@/components/Card";
 import LinkCard from "@/components/LinkCard";
 import Navbar from "@/components/navbar";
+import ProfessionalExperiences from "@/components/ProfessionalExperiences";
+import QualificationsCard from "@/components/QualificationCard";
 import ScheduleCheckups from "@/components/ScheduleCheckups";
 import SpecialtiesCards from "@/components/SpecialtieCards";
 import Tabs from "@/components/Tabs";
@@ -149,14 +151,6 @@ const TaskLists = (): ReactNode => {
   );
 };
 
-const ProfessionalExperience = (): ReactNode => {
-  return <Card>Qualifications</Card>;
-};
-
-const QualificationsCard = (): ReactNode => {
-  return <Card>asdasd</Card>;
-};
-
 export default function ProfilePage(): ReactNode {
   const searchParams = useSearchParams();
   const [tab, setTab] = useState(Number(searchParams.get("tab") ?? "0"));
@@ -219,7 +213,7 @@ export default function ProfilePage(): ReactNode {
             </>
           )}
           {tab === 1 && <QualificationsCard></QualificationsCard>}
-          {tab === 2 && <ProfessionalExperience></ProfessionalExperience>}
+          {tab === 2 && <ProfessionalExperiences></ProfessionalExperiences>}
           {tab === 3 && <SpecialtiesCards />}
         </div>
       </div>

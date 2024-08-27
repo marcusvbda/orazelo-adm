@@ -44,7 +44,9 @@ export const SpecialtiesForm = ({ mode = "create" }: any): ReactNode => {
               Tipo
             </label>
             <div className="w-full flex-col flex md:flex-row gap-2">
-              <input type="text" value="Curso" className="text-gray-400" />
+              <select value="Curso" className="text-gray-400">
+                <option value="Curso">Curso</option>
+              </select>
             </div>
           </div>
         </>
@@ -65,39 +67,37 @@ export const SpecialtiesForm = ({ mode = "create" }: any): ReactNode => {
           />
         </div>
       </div>
-      <>
-        <div className="flex flex-col gap-4 my-4">
-          <h4 className="text-lg font-bold">Documento</h4>
-          <small className="text-neutral-400 font-sm">
-            Faça upload de um documento, se julgar necessário.
-          </small>
-          <div
-            className={`w-full flex-col flex items-center justify-center gap-2 border border-dashed ${
-              mode === "create"
-                ? "border-primary-300 bg-primary-100/50"
-                : "border-gray-300"
-            } p-10 rounded-lg`}
-          >
-            {mode === "create" && (
-              <>
-                <AspectRatio src="/upload.svg" size={{ height: 64 }} />
-                <small className="text-neutral-400 font-sm">
-                  Arraste um arquivo aqui ou selecione do seu computador
-                </small>
-              </>
-            )}
-            {mode === "edit" && (
-              <div className="flex flex-row gap-4 items-center">
-                <AspectRatio src="/pdf.svg" size={{ height: 64 }} />
-                <div className="flex flex-col gap-2">
-                  <strong>Certificado</strong>
-                  <small className="text-neutral-400 font-sm">1GB</small>
-                </div>
+      <div className="flex flex-col gap-4 my-4">
+        <h4 className="text-lg font-bold">Documento</h4>
+        <small className="text-neutral-400 font-sm">
+          Faça upload de um documento, se julgar necessário.
+        </small>
+        <div
+          className={`w-full flex-col flex items-center justify-center gap-2 border border-dashed ${
+            mode === "create"
+              ? "border-primary-300 bg-primary-100/50"
+              : "border-gray-300"
+          } p-10 rounded-lg`}
+        >
+          {mode === "create" && (
+            <>
+              <AspectRatio src="/upload.svg" size={{ height: 64 }} />
+              <small className="text-neutral-400 font-sm">
+                Arraste um arquivo aqui ou selecione do seu computador
+              </small>
+            </>
+          )}
+          {mode === "edit" && (
+            <div className="flex flex-row gap-4 items-center">
+              <AspectRatio src="/pdf.svg" size={{ height: 64 }} />
+              <div className="flex flex-col gap-2">
+                <strong>Certificado</strong>
+                <small className="text-neutral-400 font-sm">1GB</small>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
-      </>
+      </div>
       <div className="flex flex-col gap-4 my-4">
         <h4 className="text-lg font-bold">Imagem</h4>
         <small className="text-neutral-400 font-sm">
