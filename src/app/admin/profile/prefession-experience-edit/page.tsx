@@ -1,10 +1,7 @@
-import AspectRatio from "@/components/AspectRatio";
 import BackLink from "@/components/back-link";
 import Card from "@/components/Card";
 import Navbar from "@/components/navbar";
 import { ProfessionalExperiencesForm } from "@/components/ProfessionalExperiences";
-import { SpecialtiesForm } from "@/components/SpecialtieCards";
-import Switch from "@/components/Switch";
 import { ReactNode } from "react";
 
 export default function SpecialtiesEdit(): ReactNode {
