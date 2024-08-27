@@ -83,9 +83,16 @@ export default function Sidebar(): ReactNode {
 
   const items = useMemo(() => {
     return menuItems.map((item) => {
+      const active =
+        item.label === "Dashboard"
+          ? pathName === "/admin"
+          : pathName
+              .replace("/admin", "")
+              .trim()
+              .startsWith(item.href.replace("/admin", "").trim());
       return {
         ...item,
-        active: item.href === pathName,
+        active,
       };
     });
   }, [pathName]);

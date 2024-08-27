@@ -11,9 +11,10 @@
 }
 
 input[type="text"],
+textarea,
 [type="email"],
 [type="password"] {
-  @apply bg-neutral-100 text-sm p-3 rounded-lg w-full;
+  @apply bg-neutral-100 text-sm p-3 rounded-lg w-full resize-none;
 }
 
 input[type="checkbox"] {

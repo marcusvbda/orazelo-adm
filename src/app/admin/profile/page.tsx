@@ -6,6 +6,7 @@ import Card from "@/components/Card";
 import LinkCard from "@/components/LinkCard";
 import Navbar from "@/components/navbar";
 import ScheduleCheckups from "@/components/ScheduleCheckups";
+import SpecialtiesCards from "@/components/SpecialtieCards";
 import Tabs from "@/components/Tabs";
 import Link from "next/link";
 import { ReactNode, useMemo, useState } from "react";
@@ -147,13 +148,21 @@ const TaskLists = (): ReactNode => {
   );
 };
 
+const ProfessionalExperience = (): ReactNode => {
+  return <Card>Qualifications</Card>;
+};
+
+const QualificationsCard = (): ReactNode => {
+  return <Card>asdasd</Card>;
+};
+
 export default function ProfilePage(): ReactNode {
   const tabsOptions = useMemo(
     () => ["Visão geral", "Qualificações", "Experiências", "Especialidades"],
     []
   );
 
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState(1);
 
   return (
     <div className="flex flex-col">
@@ -201,9 +210,9 @@ export default function ProfilePage(): ReactNode {
               <ScheduleCheckups />
             </>
           )}
-          {tab === 1 && <>qualificaçoes</>}
-          {tab === 2 && <>experiencias</>}
-          {tab === 3 && <>especialidades</>}
+          {tab === 1 && <QualificationsCard></QualificationsCard>}
+          {tab === 2 && <ProfessionalExperience></ProfessionalExperience>}
+          {tab === 3 && <SpecialtiesCards />}
         </div>
       </div>
     </div>
