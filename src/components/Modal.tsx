@@ -10,13 +10,15 @@ interface IProps {
   children: ReactNode;
   size?: string;
   title?: string;
+  cardClassName?: string;
 }
 
 export default function Modal({
   source,
   children,
-  size = "8/12",
+  size = "7/12",
   title = "",
+  cardClassName = "",
 }: IProps): ReactNode {
   const [open, setOpen] = useState(false);
   return (
@@ -28,7 +30,7 @@ export default function Modal({
         createPortal(
           <div className="fixed inset-0 bg-black/20 z-50 flex justify-center items-center p-4 cursor-pointer">
             <div className={`w-full md:w-${size}`}>
-              <Card className="w-full max-h-full">
+              <Card className={`w-full max-h-full ${cardClassName}`}>
                 <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
                   <h4 className="text-neutral-700 text-xl font-semibold">
                     {title}

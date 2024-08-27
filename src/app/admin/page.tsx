@@ -52,6 +52,7 @@ const EditFeedback = ({ feedback }: any) => {
         </button>
       }
       title="Visualização de feedback"
+      cardClassName="max-h-screen overflow-y-auto"
     >
       <div className="flex flex-col gap-6">
         <div className="w-full rounded-lg bg-gray-50 p-4 flex gap-6 items-center border border-gray-100">

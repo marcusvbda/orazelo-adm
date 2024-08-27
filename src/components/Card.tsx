@@ -13,7 +13,7 @@ export default function Card({
 }: IProps): ReactNode {
   return (
     <div
-      className={`bg-white p-4 shadow-sm rounded-2xl max-h-screen overflow-y-auto flex-1 ${className}`}
+      className={`bg-white p-4 shadow-sm rounded-2xl flex-1 ${className}`}
       style={style}
     >
       {children ? children : <></>}

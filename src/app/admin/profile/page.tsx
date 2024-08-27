@@ -9,7 +9,8 @@ import ScheduleCheckups from "@/components/ScheduleCheckups";
 import SpecialtiesCards from "@/components/SpecialtieCards";
 import Tabs from "@/components/Tabs";
 import Link from "next/link";
-import { ReactNode, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 
 const ProfileAvatar = (): ReactNode => {
   return (
@@ -157,12 +158,19 @@ const QualificationsCard = (): ReactNode => {
 };
 
 export default function ProfilePage(): ReactNode {
+  const searchParams = useSearchParams();
+  const [tab, setTab] = useState(Number(searchParams.get("tab") ?? "0"));
+  const router = useRouter();
   const tabsOptions = useMemo(
     () => ["Visão geral", "Qualificações", "Experiências", "Especialidades"],
     []
   );
 
-  const [tab, setTab] = useState(1);
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("tab", tab.toString());
+    router.push(`${window.location.pathname}?${params.toString()}`);
+  }, [tab, router, searchParams]);
 
   return (
     <div className="flex flex-col">
