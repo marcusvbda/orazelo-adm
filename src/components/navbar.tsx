@@ -1,7 +1,6 @@
 "use client";
 import { ReactNode } from "react";
 import AspectRatio from "./AspectRatio";
-import Link from "next/link";
 
 interface IProps {
   text?: ReactNode;
@@ -22,13 +21,10 @@ const NavbarActions = () => {
       <button className="bg-primary-500 rounded-lg size-[42px] text-sm text-primary-300 font-semibold gap-2 flex items-center justify-center">
         <AspectRatio src="/notification.svg" size={{ height: 24 }} />
       </button>
-      <Link
-        href="#"
-        className="bg-white flex items-center rounded-3xl px-4 py-3 text-sm text-primary-300 font-semibold gap-2 ml-0 md:ml-3"
-      >
+      <button className="btn white ml-0 md:ml-3">
         <AspectRatio src="/calendar.svg" size={{ height: 20 }} />
         <span className="hidden md:block">Nova consulta</span>
-      </Link>
+      </button>
     </div>
   );
 };
