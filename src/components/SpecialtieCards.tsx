@@ -6,7 +6,7 @@ import Card from "./Card";
 import Modal from "./Modal";
 import AspectRatio from "./AspectRatio";
 
-export const SpecialtiesForm = (): ReactNode => {
+export const SpecialtiesForm = ({ mode = "create" }: any): ReactNode => {
   return (
     <>
       <div className="flex flex-col gap-2 my-4">
@@ -14,29 +14,90 @@ export const SpecialtiesForm = (): ReactNode => {
           Título
         </label>
         <div className="w-full flex-col flex md:flex-row gap-2">
-          <input type="text" className="text-gray-400" />
+          <input
+            type="text"
+            value={
+              mode == "edit"
+                ? "Especialização em TOC - Transtorno Obssessivo Compulsivo"
+                : ""
+            }
+            className="text-gray-400"
+          />
         </div>
       </div>
+      {mode === "create" && (
+        <>
+          <div className="flex flex-col gap-2 my-4">
+            <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+              Instituição/Empresa
+            </label>
+            <div className="w-full flex-col flex md:flex-row gap-2">
+              <input
+                type="text"
+                value="Instituto Líbano"
+                className="text-gray-400"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 my-4">
+            <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+              Tipo
+            </label>
+            <div className="w-full flex-col flex md:flex-row gap-2">
+              <input type="text" value="Curso" className="text-gray-400" />
+            </div>
+          </div>
+        </>
+      )}
       <div className="flex flex-col gap-2 my-4">
         <label className="w-full md:w-5/12 text-neutral-600 text-sm">
-          Título
+          Descrição
         </label>
         <div className="w-full flex-col flex md:flex-row gap-2">
-          <textarea rows={6} className="text-gray-400" />
+          <textarea
+            rows={6}
+            className="text-gray-400"
+            value={
+              mode == "edit"
+                ? "Auxiliar a Equipe de Orientação Educacional e auxiliar a Coordenação Pedagógica."
+                : ""
+            }
+          />
         </div>
       </div>
-      <div className="flex flex-col gap-4 my-4">
-        <h4 className="text-lg font-bold">Documento</h4>
-        <small className="text-neutral-400 font-sm">
-          Faça upload de um documento, se julgar necessário.
-        </small>
-        <div className="w-full flex-col flex items-center justify-center gap-2 border border-dashed border-primary-300 bg-primary-100/50 p-10 rounded-lg">
-          <AspectRatio src="/upload.svg" size={{ height: 64 }} />
+      <>
+        <div className="flex flex-col gap-4 my-4">
+          <h4 className="text-lg font-bold">Documento</h4>
           <small className="text-neutral-400 font-sm">
-            Arraste um arquivo aqui ou selecione do seu computador
+            Faça upload de um documento, se julgar necessário.
           </small>
+          <div
+            className={`w-full flex-col flex items-center justify-center gap-2 border border-dashed ${
+              mode === "create"
+                ? "border-primary-300 bg-primary-100/50"
+                : "border-gray-300"
+            } p-10 rounded-lg`}
+          >
+            {mode === "create" && (
+              <>
+                <AspectRatio src="/upload.svg" size={{ height: 64 }} />
+                <small className="text-neutral-400 font-sm">
+                  Arraste um arquivo aqui ou selecione do seu computador
+                </small>
+              </>
+            )}
+            {mode === "edit" && (
+              <div className="flex flex-row gap-4 items-center">
+                <AspectRatio src="/pdf.svg" size={{ height: 64 }} />
+                <div className="flex flex-col gap-2">
+                  <strong>Certificado</strong>
+                  <small className="text-neutral-400 font-sm">1GB</small>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </>
       <div className="flex flex-col gap-4 my-4">
         <h4 className="text-lg font-bold">Imagem</h4>
         <small className="text-neutral-400 font-sm">
@@ -45,7 +106,13 @@ export const SpecialtiesForm = (): ReactNode => {
         </small>
         <div className="flex flex-wrap gap-4 justify-center">
           <AspectRatio src="/specialties-1.svg" size={{ height: 120 }} />
-          <AspectRatio src="/specialties-2.svg" size={{ height: 120 }} />
+          <AspectRatio
+            src="/specialties-2.svg"
+            className={
+              mode === "edit" ? "border-4 rounded-lg border-primary/80" : ""
+            }
+            size={{ height: 120 }}
+          />
           <AspectRatio src="/specialties-3.svg" size={{ height: 120 }} />
         </div>
       </div>

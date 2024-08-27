@@ -39,8 +39,8 @@ export default function SpecialtiesEdit(): ReactNode {
                 experiência
               </small>
             </h4>
-            <SpecialtiesForm />
-            <div className="flex gap-2 justify-end">
+            <SpecialtiesForm mode="edit" />
+            <div className="flex gap-2 justify-end pt-4 border-t border-gray-100">
               <button className="btn ghost">Descartar</button>
               <button className="btn primary">Salvar alterações</button>
             </div>
