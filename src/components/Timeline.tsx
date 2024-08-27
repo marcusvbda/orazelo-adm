@@ -2,8 +2,6 @@
 
 import { ReactNode } from "react";
 import AspectRatio from "./AspectRatio";
-import DropMenu, { DropMenuItem } from "./DropMenu";
-import { useRouter } from "next/navigation";
 
 export const TimelineTitle = ({ title, description }: any): ReactNode => {
   return (
@@ -14,25 +12,6 @@ export const TimelineTitle = ({ title, description }: any): ReactNode => {
   );
 };
 
-export const TimelineMenu = () => {
-  const router = useRouter();
-  return (
-    <DropMenu
-      source={
-        <div className="cursor-pointer size-6 bg-gray-200 rounded-lg flex items-center justify-center">
-          <AspectRatio src="/etc.svg" size={{ width: 10 }} />
-        </div>
-      }
-    >
-      <DropMenuItem
-        onClick={() => router.push("/admin/profile/qualification-edit")}
-      >
-        Editar
-      </DropMenuItem>
-      <DropMenuItem>Excluir</DropMenuItem>
-    </DropMenu>
-  );
-};
 export default function Timeline({ items }: any): ReactNode {
   return (
     <div className="flex flex-col w-full">

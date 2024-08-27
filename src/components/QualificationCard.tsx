@@ -2,8 +2,31 @@
 import { ReactNode, useMemo } from "react";
 import Card from "./Card";
 import AspectRatio from "./AspectRatio";
-import Timeline, { TimelineMenu, TimelineTitle } from "./Timeline";
+import Timeline, { TimelineTitle } from "./Timeline";
 import Modal from "./Modal";
+import { useRouter } from "next/navigation";
+import DropMenu, { DropMenuItem } from "./DropMenu";
+
+export const TimelineMenu = () => {
+  const router = useRouter();
+  return (
+    <DropMenu
+      source={
+        <div className="cursor-pointer size-6 bg-gray-200 rounded-lg flex items-center justify-center">
+          <AspectRatio src="/etc.svg" size={{ width: 10 }} />
+        </div>
+      }
+    >
+      <DropMenuItem
+        onClick={() => router.push("/admin/profile/qualification-edit")}
+      >
+        Editar
+      </DropMenuItem>
+      <DropMenuItem>Excluir</DropMenuItem>
+    </DropMenu>
+  );
+};
+
 export const QualificationForm = ({ mode = "create" }: any) => {
   return (
     <>
