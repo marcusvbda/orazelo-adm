@@ -36,24 +36,32 @@ export default function EditProfilePage(): ReactNode {
             <div className=" border-b border-gray-100 pb-2 mb-2 flex flex-col">
               <InputRow label="Nome completo">
                 <>
-                  <input type="text" value="Vera" className="text-gray-400" />
                   <input
-                    value="Roberta"
+                    type="text"
+                    defaultValue="Vera"
+                    className="text-gray-400"
+                  />
+                  <input
+                    defaultValue="Roberta"
                     type="text"
                     className="text-gray-400"
                   />
                 </>
               </InputRow>
               <InputRow label="Grau acadêmico">
-                <input value="Dra." type="text" className="text-gray-400" />
+                <input
+                  defaultValue="Dra."
+                  type="text"
+                  className="text-gray-400"
+                />
               </InputRow>
               <InputRow label="Nome completo">
                 <>
-                  <select value="SP" className="text-gray-400">
+                  <select defaultValue="SP" className="text-gray-400">
                     <option value="SP">SP</option>
                   </select>
                   <input
-                    value="08/78645"
+                    defaultValue="08/78645"
                     type="text"
                     className="text-gray-400"
                   />
@@ -61,14 +69,14 @@ export default function EditProfilePage(): ReactNode {
               </InputRow>
               <InputRow label="Número">
                 <input
-                  value="(11) 99999-9999"
+                  defaultValue="(11) 99999-9999"
                   type="text"
                   className="text-gray-400"
                 />
               </InputRow>
               <InputRow label="Religião">
                 <input
-                  value="Evangélica"
+                  defaultValue="Evangélica"
                   type="text"
                   className="text-gray-400"
                 />
@@ -79,7 +87,7 @@ export default function EditProfilePage(): ReactNode {
                     <AspectRatio src="/br-flag.svg" size={{ height: 16 }} />
                   </div>
                   <input
-                    value="Brasil"
+                    defaultValue="Brasil"
                     type="text"
                     className="text-gray-400 !pl-10 w-full"
                   />
@@ -87,7 +95,7 @@ export default function EditProfilePage(): ReactNode {
               </InputRow>
               <InputRow label="Religião">
                 <input
-                  value="Terapia analítico-comportamental"
+                  defaultValue="Terapia analítico-comportamental"
                   type="text"
                   className="text-gray-400"
                 />

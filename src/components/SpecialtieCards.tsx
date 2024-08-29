@@ -34,7 +34,7 @@ export const SpecialtiesForm = ({ mode = "create" }: any): ReactNode => {
             <div className="w-full flex-col flex md:flex-row gap-2">
               <input
                 type="text"
-                value="Instituto Líbano"
+                defaultValue="Instituto Líbano"
                 className="text-gray-400"
               />
             </div>
@@ -44,7 +44,7 @@ export const SpecialtiesForm = ({ mode = "create" }: any): ReactNode => {
               Tipo
             </label>
             <div className="w-full flex-col flex md:flex-row gap-2">
-              <select value="Curso" className="text-gray-400">
+              <select defaultValue="Curso" className="text-gray-400">
                 <option value="Curso">Curso</option>
               </select>
             </div>
@@ -59,7 +59,7 @@ export const SpecialtiesForm = ({ mode = "create" }: any): ReactNode => {
           <textarea
             rows={6}
             className="text-gray-400"
-            value={
+            defaultValue={
               mode == "edit"
                 ? "Auxiliar a Equipe de Orientação Educacional e auxiliar a Coordenação Pedagógica."
                 : ""

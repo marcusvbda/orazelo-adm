@@ -21,7 +21,10 @@ const CardNewContent = () => {
       <div className="text-primary/50 text-sm">
         Veja consultas agendadas, próximas consultas e históricos de consultas
       </div>
-      <Link href="#" className="mt-auto flex items-center gap-2 font-semibold">
+      <Link
+        href="/admin/schedule/my-schedule"
+        className="mt-auto flex items-center gap-2 font-semibold"
+      >
         Acessar agenda
         <AspectRatio src="/arrow-blue.svg" size={{ height: 22 }} />
       </Link>
@@ -54,9 +57,7 @@ export default function ConsultationsPage(): ReactNode {
             <h4 className="text-neutral-600 text-lg">Filtrar</h4>
             <div>
               <select>
-                <option>
-                  Esse mês de <strong>Julho</strong>
-                </option>
+                <option>Esse mês de Julho</option>
               </select>
             </div>
           </div>

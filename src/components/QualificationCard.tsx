@@ -55,7 +55,7 @@ export const QualificationForm = ({ mode = "create" }: any) => {
             <div className="w-full flex-col flex md:flex-row gap-2">
               <input
                 type="text"
-                value="Instituto Líbano"
+                defaultValue="Instituto Líbano"
                 className="text-gray-400"
               />
             </div>
@@ -65,7 +65,7 @@ export const QualificationForm = ({ mode = "create" }: any) => {
               Tipo
             </label>
             <div className="w-full flex-col flex md:flex-row gap-2">
-              <select value="Curso" className="text-gray-400">
+              <select defaultValue="Curso" className="text-gray-400">
                 <option value="Curso">Curso</option>
               </select>
             </div>

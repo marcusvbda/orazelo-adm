@@ -3,6 +3,7 @@ import { ReactNode, useMemo } from "react";
 import Card from "./Card";
 import Link from "next/link";
 import AspectRatio from "./AspectRatio";
+import Modal from "./Modal";
 
 interface IScheduleCheckupRow {
   avatar: string;
@@ -62,6 +63,83 @@ const ScheduleCheckupRow = ({
   );
 };
 
+export const NewScehdule = ({ source }: any) => {
+  return (
+    <Modal
+      source={source}
+      title="Adicionar nova consulta"
+      cardClassName="max-h-screen overflow-y-auto"
+    >
+      <div className="flex flex-col gap-4 px-4">
+        <div className="flex flex-col gap-2">
+          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            Paciente
+          </label>
+          <div className="w-full flex-col flex md:flex-row gap-2">
+            <div className="relative w-full">
+              <div className="absolute size-6 bg-primary-100 min-w-6 min-h-6 text-primary flex items-center justify-center rounded-full left-2 top-[10px] text-sm font-bold">
+                A
+              </div>
+              <select className="pl-10 w-full">
+                <option>Ana Paula Ribeiro</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            Titulo
+          </label>
+          <div className="w-full flex-col flex md:flex-row gap-2">
+            <input
+              type="text"
+              defaultValue="Retorno Psicologia"
+              className="text-gray-400"
+            />
+          </div>
+        </div>
+        <div className="flex gap-4">
+          <div className="w-full md:w-6/12 flex flex-col gap-2">
+            <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+              Data da consulta
+            </label>
+            <div className="w-full flex-col flex md:flex-row gap-2">
+              <div className="relative w-full">
+                <div className="absolute  left-3 top-[13px]">
+                  <AspectRatio src="/calendar-gray.svg" size={{ height: 20 }} />
+                </div>
+                <input
+                  type="date"
+                  defaultValue="2024-07-19"
+                  className="text-gray-400 !pl-10 w-full"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="w-full md:w-6/12  flex flex-col gap-2">
+            <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+              Horário da consulta
+            </label>
+            <input
+              type="time"
+              defaultValue="09:00"
+              className="text-gray-400 "
+            />
+          </div>
+        </div>
+        <div className="flex gap-4 justify-between mt-4 flex-col md:flex-row">
+          <button className="btn gray order-0 md:order-1 w-full md:w-auto">
+            Cancelar
+          </button>
+          <button className="btn primary !px-14 w-full order-0 md:order-1 md:w-auto">
+            Adicionar
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
 export default function ScheduleCheckups(): ReactNode {
   const scheduleData = useMemo(
     () => [
@@ -112,11 +190,16 @@ export default function ScheduleCheckups(): ReactNode {
           <h4 className="text-neutral-600 text-lg">Consultas agendadas</h4>
           <small className="text-neutral-400 text-sm">28 novas consultas</small>
         </div>
-
-        <Link href="#" className="btn primary ml-auto">
-          <AspectRatio src="/calendar-color.svg" size={{ height: 20 }} />
-          <span className="hidden md:block">Nova consulta</span>
-        </Link>
+        <div className="ml-auto">
+          <NewScehdule
+            source={
+              <button className="btn primary">
+                <AspectRatio src="/calendar-color.svg" size={{ height: 20 }} />
+                <span className="hidden md:block">Nova consulta</span>
+              </button>
+            }
+          />
+        </div>
       </div>
       <div className="flex-row w-full gap-2 bg-gray-100 rounded-lg py-2 px-4 mb-6 hidden md:flex">
         <div className="w-4/12 flex items-center text-neutral-400 text-sm">

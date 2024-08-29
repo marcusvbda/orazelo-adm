@@ -58,7 +58,7 @@ const menuItems = [
     ),
   },
   {
-    href: "/admin/consultations",
+    href: "/admin/schedule",
     label: "Consultas",
     rawIcon: (
       <svg

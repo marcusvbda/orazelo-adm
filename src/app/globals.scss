@@ -13,8 +13,22 @@
 input[type="text"],
 textarea,
 [type="email"],
+[type="date"],
+[type="time"],
 [type="password"] {
   @apply bg-neutral-100 text-sm p-3 rounded-lg w-full resize-none;
+}
+
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
 }
 
 input[type="checkbox"] {
@@ -76,4 +90,24 @@ a {
 
 .theme-container {
   @apply p-8 md:px-10;
+}
+
+.custom-full-calendar {
+  button[title="Sincronizar"] {
+    @extend .btn;
+    @extend .gray;
+    &:hover {
+      @apply bg-gray-200 text-gray-500;
+    }
+  }
+
+  .fc-toolbar-chunk {
+    @apply flex items-center gap-1;
+
+    .fc-toolbar-title {
+      &::first-letter {
+        @apply uppercase;
+      }
+    }
+  }
 }

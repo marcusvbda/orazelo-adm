@@ -1,6 +1,7 @@
 "use client";
 import { ReactNode } from "react";
 import AspectRatio from "./AspectRatio";
+import { NewScehdule } from "./ScheduleCheckups";
 
 interface IProps {
   text?: ReactNode;
@@ -21,10 +22,14 @@ const NavbarActions = () => {
       <button className="bg-primary-500 rounded-lg size-[42px] text-sm text-primary-300 font-semibold gap-2 flex items-center justify-center">
         <AspectRatio src="/notification.svg" size={{ height: 24 }} />
       </button>
-      <button className="btn white ml-0 md:ml-3">
-        <AspectRatio src="/calendar.svg" size={{ height: 20 }} />
-        <span className="hidden md:block">Nova consulta</span>
-      </button>
+      <NewScehdule
+        source={
+          <button className="btn white ml-0 md:ml-3">
+            <AspectRatio src="/calendar.svg" size={{ height: 20 }} />
+            <span className="hidden md:block">Nova consulta</span>
+          </button>
+        }
+      />
     </div>
   );
 };
