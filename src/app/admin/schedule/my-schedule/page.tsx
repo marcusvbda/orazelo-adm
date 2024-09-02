@@ -72,18 +72,26 @@ export default function MySchedulePage(): ReactNode {
               plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
               initialView="dayGridMonth"
               events={events}
-              customButtons={{
-                SyncEvent: {
-                  text: "Sincronizar",
-                  click: () => {
-                    alert(123);
-                  },
-                },
-              }}
               headerToolbar={{
-                left: "prev next title",
-                center: "dayGridMonth,timeGridWeek,timeGridDay",
-                right: "SyncEvent",
+                left: "prev next today",
+                center: "title",
+                right: "dayGridMonth,timeGridWeek,timeGridDay",
+              }}
+              eventContent={(eventInfo: any) => {
+                const hourStart =
+                  eventInfo.event._instance.range.start.getHours();
+                const minStart =
+                  eventInfo.event._instance.range.start.getMinutes();
+                return (
+                  <div className="flex gap-2 items-center text-xs px-4">
+                    <span className="w-2 h-2 rounded-full bg-primary-500" />
+                    <div className="text-gray-400">
+                      {hourStart.toString().padStart(2, "0")}:
+                      {minStart.toString().padStart(2, "0")}
+                    </div>
+                    <div className="text-gray-600">{eventInfo.event.title}</div>
+                  </div>
+                );
               }}
             />
           </Card>
