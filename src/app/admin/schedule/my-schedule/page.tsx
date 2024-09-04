@@ -4,15 +4,21 @@ import BackLink from "@/components/back-link";
 import LinkCard from "@/components/LinkCard";
 import Navbar from "@/components/navbar";
 import ScheduleCheckupsToday from "@/components/ScheduleCheckupsToday";
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Card from "@/components/Card";
 import allLocales from "@fullcalendar/core/locales-all";
+import Modal from "@/components/Modal";
+import AspectRatio from "@/components/AspectRatio";
+import Link from "next/link";
+import Barchart from "@/components/Barchar";
+import Tabs from "@/components/Tabs";
 
 export default function MySchedulePage(): ReactNode {
+  const [showSchedule, setShowSchedule] = useState(false);
   const events = useMemo(() => {
     return Array.from({ length: 50 }, () => {
       const year = new Date().getFullYear();
@@ -77,13 +83,14 @@ export default function MySchedulePage(): ReactNode {
                 center: "title",
                 right: "dayGridMonth,timeGridWeek,timeGridDay",
               }}
+              eventClick={() => setShowSchedule(true)}
               eventContent={(eventInfo: any) => {
                 const hourStart =
                   eventInfo.event._instance.range.start.getHours();
                 const minStart =
                   eventInfo.event._instance.range.start.getMinutes();
                 return (
-                  <div className="flex gap-2 items-center text-xs px-4">
+                  <div className="flex gap-2 items-center text-xs px-4 py-2 cursor-pointer flex-wrap">
                     <span className="w-2 h-2 rounded-full bg-primary-500" />
                     <div className="text-gray-400">
                       {hourStart.toString().padStart(2, "0")}:
@@ -97,6 +104,91 @@ export default function MySchedulePage(): ReactNode {
           </Card>
         </div>
       </div>
+      <Modal
+        visible={showSchedule}
+        source={<></>}
+        title="Aprovação de consulta"
+        cardClassName="max-h-screen overflow-y-auto"
+        size="8/12"
+      >
+        <div className="w-full">
+          <div className="w-full h-full flex gap-6 bg-gray-50 p-4 rounded-lg pb-4 mb-4">
+            <ProfileAvatar />
+            <div className="flex flex-col gap-2 flex-1">
+              <h4 className="flex flex-col md:flex-row items-center gap-2 text-lg font-bold text-neutral-700 w-full">
+                <span className="order-1 md:order-0 flex items-center gap-1">
+                  Dra. Vera Roberta
+                  <AspectRatio src="/cert.svg" size={{ height: 21 }} />
+                </span>
+              </h4>
+              <div className="flex items-center gap-2 flex-wrap">
+                <div className="flex items-center gap-1 text-neutral-400 text-xs">
+                  <AspectRatio src="/old-icon.svg" size={{ height: 14 }} />
+                  38 anos
+                </div>
+                <div className="flex items-center gap-1 text-neutral-400 text-xs">
+                  <AspectRatio src="/religion.svg" size={{ height: 14 }} />
+                  Evangélica
+                </div>
+                <div className="flex items-center gap-1 text-neutral-400 text-xs">
+                  <AspectRatio src="/email.svg" size={{ height: 14 }} />
+                  ana.pereira@email.com.br
+                </div>
+              </div>
+              <div className="flex flex-col md:flex-row mt-3 gap-2 mt-auto">
+                <span className="border-2 border-gray-300 border-dashed px-4 py-2 rounded-lg gap-1">
+                  <h4 className="text-neutral-700 font-bold text-lg mb-0">
+                    4.5
+                  </h4>
+                  <strong className="text-neutral-400 text-xs font-normal">
+                    Avaliação
+                  </strong>
+                </span>
+              </div>
+            </div>
+            <Tabs
+              className="w-full mb-2"
+              value={0}
+              onChange={() => null}
+              items={["Visão geral"]}
+            />
+          </div>
+          <div className="w-full flex gap-6 mb-4 bg-gray-50 p-4">
+            <Barchart
+              data={{
+                jan: 3.5,
+                fev: 3.2,
+                mar: 4.2,
+                abr: 4.5,
+                mai: 2,
+                jun: 4.95,
+                jul: 2.5,
+              }}
+              callbackRenderAxisY={(value: any) => {
+                return (
+                  <AspectRatio
+                    src={`/emotion-${value - 1}.svg`}
+                    size={{ height: 16 }}
+                  />
+                );
+              }}
+            />
+          </div>
+          <div className="w-full flex justify-end gap-2">
+            <button className="btn danger !px-10">Recusar</button>
+            <button className="btn primary !px-10">Agendar</button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }
+
+const ProfileAvatar = (): ReactNode => {
+  return (
+    <div className="hidden md:block h-40 w-[167px] min-h-40 min-w-[167px] relative">
+      <div className="bg-[url('/user-2.svg')] w-full h-full bg-no-repeat bg-cover rounded-lg overflow-hidden" />
+      <div className="size-4 bg-green-400 rounded-full absolute right-[-8px] bottom-8" />
+    </div>
+  );
+};

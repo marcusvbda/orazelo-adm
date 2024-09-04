@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Card from "./Card";
 import AspectRatio from "./AspectRatio";
@@ -11,6 +11,8 @@ interface IProps {
   size?: string;
   title?: string;
   cardClassName?: string;
+  visible?: boolean;
+  setVisible?: any;
 }
 
 export default function Modal({
@@ -19,8 +21,13 @@ export default function Modal({
   size = "7/12",
   title = "",
   cardClassName = "",
+  visible,
 }: IProps): ReactNode {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(visible || false);
+  useEffect(() => {
+    setOpen(visible || false);
+  }, [visible]);
+
   return (
     <>
       <Link href="#" onClick={(e: any) => [e.preventDefault(), setOpen(true)]}>
