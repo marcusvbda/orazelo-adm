@@ -112,38 +112,40 @@ export default function MySchedulePage(): ReactNode {
         size="8/12"
       >
         <div className="w-full">
-          <div className="w-full h-full flex gap-6 bg-gray-50 p-4 rounded-lg pb-4 mb-4">
-            <ProfileAvatar />
-            <div className="flex flex-col gap-2 flex-1">
-              <h4 className="flex flex-col md:flex-row items-center gap-2 text-lg font-bold text-neutral-700 w-full">
-                <span className="order-1 md:order-0 flex items-center gap-1">
-                  Dra. Vera Roberta
-                  <AspectRatio src="/cert.svg" size={{ height: 21 }} />
-                </span>
-              </h4>
-              <div className="flex items-center gap-2 flex-wrap">
-                <div className="flex items-center gap-1 text-neutral-400 text-xs">
-                  <AspectRatio src="/old-icon.svg" size={{ height: 14 }} />
-                  38 anos
+          <div className="w-full h-full flex-col gap-6 flex bg-gray-50 p-4 rounded-lg pb-4 mb-4">
+            <div className="w-full flex gap-6">
+              <ProfileAvatar />
+              <div className="flex flex-col gap-2 flex-1">
+                <h4 className="flex flex-col md:flex-row items-center gap-2 text-lg font-bold text-neutral-700 w-full">
+                  <span className="order-1 md:order-0 flex items-center gap-1">
+                    Dra. Vera Roberta
+                    <AspectRatio src="/cert.svg" size={{ height: 21 }} />
+                  </span>
+                </h4>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <div className="flex items-center gap-1 text-neutral-400 text-xs">
+                    <AspectRatio src="/old-icon.svg" size={{ height: 14 }} />
+                    38 anos
+                  </div>
+                  <div className="flex items-center gap-1 text-neutral-400 text-xs">
+                    <AspectRatio src="/religion.svg" size={{ height: 14 }} />
+                    Evangélica
+                  </div>
+                  <div className="flex items-center gap-1 text-neutral-400 text-xs">
+                    <AspectRatio src="/email.svg" size={{ height: 14 }} />
+                    ana.pereira@email.com.br
+                  </div>
                 </div>
-                <div className="flex items-center gap-1 text-neutral-400 text-xs">
-                  <AspectRatio src="/religion.svg" size={{ height: 14 }} />
-                  Evangélica
+                <div className="flex flex-col md:flex-row mt-3 gap-2 mt-auto">
+                  <span className="border-2 border-gray-300 border-dashed px-4 py-2 rounded-lg gap-1">
+                    <h4 className="text-neutral-700 font-bold text-lg mb-0">
+                      4.5
+                    </h4>
+                    <strong className="text-neutral-400 text-xs font-normal">
+                      Avaliação
+                    </strong>
+                  </span>
                 </div>
-                <div className="flex items-center gap-1 text-neutral-400 text-xs">
-                  <AspectRatio src="/email.svg" size={{ height: 14 }} />
-                  ana.pereira@email.com.br
-                </div>
-              </div>
-              <div className="flex flex-col md:flex-row mt-3 gap-2 mt-auto">
-                <span className="border-2 border-gray-300 border-dashed px-4 py-2 rounded-lg gap-1">
-                  <h4 className="text-neutral-700 font-bold text-lg mb-0">
-                    4.5
-                  </h4>
-                  <strong className="text-neutral-400 text-xs font-normal">
-                    Avaliação
-                  </strong>
-                </span>
               </div>
             </div>
             <Tabs
@@ -153,7 +155,30 @@ export default function MySchedulePage(): ReactNode {
               items={["Visão geral"]}
             />
           </div>
-          <div className="w-full flex gap-6 mb-4 bg-gray-50 p-4">
+          <div className="w-full flex flex-col gap-6 mb-4 bg-gray-50 p-4">
+            <div className="w-full flex justify-between">
+              <div className="flex flex-col">
+                <h4 className="text-neutral-800 text-lg">
+                  Emoções do paciente
+                </h4>
+                <small className="text-neutral-400">Emoções do dia-a-dia</small>
+              </div>
+              <div className="ml-auto">
+                <div className="relative w-[250px]">
+                  <div className="absolute  right-3 top-[13px]">
+                    <AspectRatio
+                      src="/calendar-gray.svg"
+                      size={{ height: 20 }}
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    defaultValue="1 Jan 2024 - 22 Jul 2024"
+                    className="text-gray-400 !pr-10 w-full"
+                  />
+                </div>
+              </div>
+            </div>
             <Barchart
               data={{
                 jan: 3.5,
