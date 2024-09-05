@@ -2,6 +2,7 @@
 import { ReactNode, useMemo } from "react";
 import Card from "./Card";
 import AspectRatio from "./AspectRatio";
+import Link from "next/link";
 
 interface IScheduleCheckupRow {
   avatar: string;
@@ -33,9 +34,12 @@ const ScheduleCheckupRow = ({
         <span className="bg-primary-100/80 text-primary-500 text-xs flex items-center py-1 px-2 rounded-lg">
           {schedule}
         </span>
-        <button className="size-7 flex items-center justify-center bg-gray-100 rounded-lg ml-auto">
+        <Link
+          href="/admin/schedule/my-schedule/chat"
+          className="size-7 flex items-center justify-center bg-gray-100 rounded-lg ml-auto"
+        >
           <AspectRatio src="/arrow-gray.svg" size={{ height: 16 }} />
-        </button>
+        </Link>
       </div>
     </div>
   );

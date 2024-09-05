@@ -13,7 +13,6 @@ import Card from "@/components/Card";
 import allLocales from "@fullcalendar/core/locales-all";
 import Modal from "@/components/Modal";
 import AspectRatio from "@/components/AspectRatio";
-import Link from "next/link";
 import Barchart from "@/components/Barchar";
 import Tabs from "@/components/Tabs";
 
@@ -136,7 +135,7 @@ export default function MySchedulePage(): ReactNode {
                     ana.pereira@email.com.br
                   </div>
                 </div>
-                <div className="flex flex-col md:flex-row mt-3 gap-2 mt-auto">
+                <div className="flex flex-col md:flex-row mt-3 gap-2">
                   <span className="border-2 border-gray-300 border-dashed px-4 py-2 rounded-lg gap-1">
                     <h4 className="text-neutral-700 font-bold text-lg mb-0">
                       4.5
