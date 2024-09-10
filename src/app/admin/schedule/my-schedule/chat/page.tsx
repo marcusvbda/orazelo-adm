@@ -925,7 +925,7 @@ export const CardCall = ({ setStarted }: any) => {
 };
 
 export default function ChatPage(): ReactNode {
-  const [started, setStarted] = useState(true);
+  const [started, setStarted] = useState(false);
 
   return (
     <div className="flex flex-col">
