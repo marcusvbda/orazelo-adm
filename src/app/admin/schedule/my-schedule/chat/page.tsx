@@ -177,7 +177,7 @@ export const ChatHeader = ({ user }: any) => {
 export const ChatMessage = ({ message }: any) => {
   return (
     <div
-      className={`w-full md:w-10/12 mb-6 ${
+      className={`w-full md:w-12/12 mb-6 ${
         message.type === "sent" && "flex self-end md:justify-end"
       }`}
     >
@@ -239,7 +239,7 @@ export const ChatMessage = ({ message }: any) => {
                   message.type === "sent" ? "text-gray-400" : "text-primary"
                 }`}
               >
-                <svg width="233" height="32" viewBox="0 0 233 32" fill="none">
+                <svg width="100%" height="32" viewBox="0 0 233 32" fill="none">
                   <rect
                     y="11"
                     width="2"
@@ -684,7 +684,11 @@ export const ChatMessage = ({ message }: any) => {
   );
 };
 
-export const Chat = ({ setStarted }: any): ReactNode => {
+export const Chat = ({
+  setStarted,
+  className = "w-full md:w-8/12",
+  children = null,
+}: any): ReactNode => {
   const messages = useMemo(() => {
     return [
       {
@@ -756,55 +760,172 @@ export const Chat = ({ setStarted }: any): ReactNode => {
         },
       },
     ];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="w-full md:w-8/12 flex flex-col gap-4  h-full max-h-full overflow-y-auto">
-      <Card className="px-8 bg-center">
-        <ChatHeader user={{ name: "Julia Novaes", avatar: "/julia.svg" }} />
-        <div className="w-full flex flex-col gap-4 py-6">
-          {messages.map((message, index) => (
-            <ChatMessage key={index} message={message} />
-          ))}
-        </div>
-        <div className="w-full flex flex-col gap-4 py-6 border-t border-gray-100">
-          <textarea
-            className="w-full resize-none inset-0 bg-transparent focus-visible:outline-0"
-            rows={3}
-            placeholder="Digite sua mensagem"
-          />
-        </div>
-        <div className="w-full flex justify-between items-center">
-          <div className="flex gap-3">
-            <Link href="#">
-              <AspectRatio src="/attach.svg" size={{ height: 24 }} />
-            </Link>
-            <Link href="#">
-              <AspectRatio src="/start.svg" size={{ height: 24 }} />
-            </Link>
+    <div
+      className={` ${className} flex flex-col gap-4  h-full max-h-full overflow-y-auto`}
+    >
+      <Card className="px-8 bg-center flex gap-4 flex-col md:flex-row">
+        <div className={`${children ? "w-full md:w-4/12" : "w-full"}`}>
+          <ChatHeader user={{ name: "Julia Novaes", avatar: "/julia.svg" }} />
+          <div className="w-full flex flex-col gap-2 py-6">
+            {messages.map((message, index) => (
+              <ChatMessage key={index} message={message} />
+            ))}
           </div>
-          <div className="flex gap-3 relative">
-            <button className="btn primary h-11">Enviar</button>
-            <button className="size-11 border rounded-full border-primary items-center justify-center flex">
-              <AspectRatio src="/mic.svg" size={{ height: 16 }} />
-            </button>
+          <div className="w-full flex flex-col gap-4 py-6 border-t border-gray-100">
+            <textarea
+              className="w-full resize-none inset-0 bg-transparent focus-visible:outline-0"
+              rows={2}
+              placeholder="Digite sua mensagem"
+            />
+          </div>
+          <div className="w-full flex justify-between items-center">
+            <div className="flex gap-3">
+              <Link href="#">
+                <AspectRatio src="/attach.svg" size={{ height: 24 }} />
+              </Link>
+              <Link href="#">
+                <AspectRatio src="/start.svg" size={{ height: 24 }} />
+              </Link>
+            </div>
+            <div className="flex gap-3 relative">
+              <button className="btn primary h-11">Enviar</button>
+              <button className="size-11 border rounded-full border-primary items-center justify-center flex">
+                <AspectRatio src="/mic.svg" size={{ height: 16 }} />
+              </button>
+            </div>
           </div>
         </div>
+        {children && <div className="w-full md:w-8/12">{children}</div>}
       </Card>
     </div>
   );
 };
 
-export const CardCall = () => {
+const OnGoingChat = ({ setStarted }: any) => {
+  const [type, setType] = useState("video");
+
   return (
-    <div className="w-full flex flex-col gap-4  h-full max-h-full overflow-y-auto">
-      <Card className="px-8 bg-center">asdasd</Card>
+    <div className="flex flex-col w-full">
+      <div
+        className={`w-full rounded-2xl ${
+          type === "video"
+            ? "bg-gray-500"
+            : "bg-gradient-to-t from-40% from-primary-300 to-primary-600 "
+        }  bg-cover bg-no-repeat flex p-8 justify-between`}
+        style={{
+          backgroundImage: type === "video" ? `url(${"/call-1.svg"})` : "",
+        }}
+      >
+        {type === "video" && (
+          <>
+            <div className="flex h-full flex-col w-full justify-between">
+              <div className="w-full flex justify-between">
+                <div>
+                  <div className="p-4 bg-gray-800 rounded-2xl flex-col gap-2 flex">
+                    <div className="text-white">Tempo restante</div>
+                    <h4 className="text-white font-semibold text-xl">24:17</h4>
+                  </div>
+                </div>
+                <div
+                  className="size-32 rounded bg-gray-800 bg-no-repeat bg-cover border-2 border-white"
+                  style={{ backgroundImage: `url(${"/call-2.svg"})` }}
+                />
+              </div>
+              <div className="mt-56 flex justify-center">
+                <div className="flex gap-4">
+                  <button
+                    className="size-14 rounded-xl bg-gray-800 flex items-center justify-center"
+                    onClick={() => setType("audio")}
+                  >
+                    <AspectRatio src="/mic-call.svg" size={{ height: 28 }} />
+                  </button>
+                  <button className="size-14 rounded-xl bg-gray-800 flex items-center justify-center">
+                    <AspectRatio src="/can-call.svg" size={{ height: 28 }} />
+                  </button>
+                  <button
+                    className="h-14 px-6 text-white rounded-xl bg-red-600 flex justify-center items-center gap-2 text-sm"
+                    onClick={() => setStarted(false)}
+                  >
+                    <AspectRatio src="/finish-call.svg" size={{ height: 28 }} />
+                    Encerrar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+        {type === "audio" && (
+          <div className="flex h-full flex-col w-full justify-between">
+            <div className="flex items-center h-full flex-col w-full gap-1 py-10">
+              <h4 className="text-2xl text-white">Julia Novaes</h4>
+              <div className="text-xs text-white/50 mt-4">Tempo restante</div>
+              <div className="text-lg text-white">24:17</div>
+              <div
+                className="size-40 bg-gray-800 rounded-full text-2xl text-white flex items-center justify-center mt-4 bg-no-repeat bg-cover"
+                style={{ backgroundImage: `url(/julia.svg)` }}
+              />
+            </div>
+            <div className="mt-auto flex justify-center">
+              <div className="flex flex-col gap-4">
+                <div className="flex gap-4 justify-between">
+                  <button
+                    className="size-14 rounded-xl bg-white flex items-center justify-center"
+                    onClick={() => setType("video")}
+                  >
+                    <AspectRatio src="/audio-black.svg" size={{ height: 28 }} />
+                  </button>
+                  <button className="size-14 rounded-xl opacity-60 bg-white flex items-center justify-center">
+                    <AspectRatio src="/mic-black.svg" size={{ height: 28 }} />
+                  </button>
+                </div>
+                <button
+                  className="h-14 px-3 text-white rounded-xl bg-red-600 flex justify-center items-center gap-2 text-sm"
+                  onClick={() => setStarted(false)}
+                >
+                  <AspectRatio src="/finish-call.svg" size={{ height: 28 }} />
+                  Encerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      <div className="w-full flex gap-4 md:gap-6 mt-4 flex-col md:flex-row">
+        <button className="border border-gray-100 flex-1 rounded-xl text-gray-300 cursor-pointer transition duration-200 hover:text-gray-500 text-sm flex flex-col items-center justify-center gap-2 py-2 px-4">
+          <AspectRatio src="/icon-chat.svg" size={{ height: 24 }} />
+          Fechar chat
+        </button>
+        <button className="border border-gray-100 flex-1 rounded-xl text-gray-300 cursor-pointer transition duration-200 hover:text-gray-500 text-sm flex flex-col items-center justify-center gap-2 py-2 px-4">
+          <AspectRatio src="/add-note.svg" size={{ height: 24 }} />
+          Adicionar anotações
+        </button>
+        <button className="border border-gray-100 flex-1 rounded-xl text-gray-300 cursor-pointer transition duration-200 hover:text-gray-500 text-sm flex flex-col items-center justify-center gap-2 py-2 px-4">
+          <AspectRatio src="/add-task.svg" size={{ height: 24 }} />
+          Enviar tarefa
+        </button>
+        <button className="border border-gray-100 flex-1 rounded-xl text-gray-300 cursor-pointer transition duration-200 hover:text-gray-500 text-sm flex flex-col items-center justify-center gap-2 py-2 px-4">
+          <AspectRatio src="/settings.svg" size={{ height: 24 }} />
+          Configurações
+        </button>
+      </div>
     </div>
   );
 };
 
+export const CardCall = ({ setStarted }: any) => {
+  return (
+    <Chat setStarted={setStarted} className="w-full">
+      <OnGoingChat setStarted={setStarted} />
+    </Chat>
+  );
+};
+
 export default function ChatPage(): ReactNode {
-  const [started, setStarted] = useState(false);
+  const [started, setStarted] = useState(true);
 
   return (
     <div className="flex flex-col">
@@ -823,7 +944,7 @@ export default function ChatPage(): ReactNode {
         <div className="flex flex-col gap-4">
           <div className="w-full flex-col md:flex-row flex gap-6">
             {started ? (
-              <CardCall />
+              <CardCall setStarted={setStarted} />
             ) : (
               <>
                 <UserList />
