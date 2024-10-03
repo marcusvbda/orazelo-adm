@@ -152,19 +152,11 @@ const TaskLists = (): ReactNode => {
 };
 
 export default function ProfilePage(): ReactNode {
-  const searchParams = useSearchParams();
-  const [tab, setTab] = useState(Number(searchParams.get("tab") ?? "0"));
-  const router = useRouter();
+  const [tab, setTab] = useState(0);
   const tabsOptions = useMemo(
     () => ["Visão geral", "Qualificações", "Experiências", "Especialidades"],
     []
   );
-
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("tab", tab.toString());
-    router.push(`${window.location.pathname}?${params.toString()}`);
-  }, [tab, router, searchParams]);
 
   return (
     <div className="flex flex-col">

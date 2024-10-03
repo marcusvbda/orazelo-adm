@@ -4,9 +4,7 @@ import { mdBreakpoint } from "../../tailwind.config";
 export const ThemeContext = createContext<any>({});
 
 export default function ThemeContextProvider({ children }: any): ReactNode {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(
-    (typeof window !== undefined ? window.innerWidth : 0) < mdBreakpoint
-  );
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -16,6 +14,10 @@ export default function ThemeContextProvider({ children }: any): ReactNode {
         setSidebarCollapsed(false);
       }
     });
+
+    setSidebarCollapsed(
+      (typeof window !== undefined ? window.innerWidth : 0) < mdBreakpoint
+    );
   }, []);
 
   return (

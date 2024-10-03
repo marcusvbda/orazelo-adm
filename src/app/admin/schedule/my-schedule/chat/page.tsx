@@ -149,7 +149,7 @@ const UserList = (): ReactNode => {
   );
 };
 
-export const ChatHeader = ({ user }: any) => {
+const ChatHeaderComponent = ({ user }: any) => {
   return (
     <div className="w-full gap-4 flex pb-4 pt-6 border-b border-gray-100">
       <div
@@ -174,7 +174,7 @@ export const ChatHeader = ({ user }: any) => {
   );
 };
 
-export const ChatMessage = ({ message }: any) => {
+const ChatMessageComponent = ({ message }: any) => {
   return (
     <div
       className={`w-full md:w-12/12 mb-6 ${
@@ -684,7 +684,7 @@ export const ChatMessage = ({ message }: any) => {
   );
 };
 
-export const Chat = ({
+const ChatComponent = ({
   setStarted,
   className = "w-full md:w-8/12",
   children = null,
@@ -769,10 +769,12 @@ export const Chat = ({
     >
       <Card className="px-8 bg-center flex gap-4 flex-col md:flex-row">
         <div className={`${children ? "w-full md:w-4/12" : "w-full"}`}>
-          <ChatHeader user={{ name: "Julia Novaes", avatar: "/julia.svg" }} />
+          <ChatHeaderComponent
+            user={{ name: "Julia Novaes", avatar: "/julia.svg" }}
+          />
           <div className="w-full flex flex-col gap-2 py-6">
             {messages.map((message, index) => (
-              <ChatMessage key={index} message={message} />
+              <ChatMessageComponent key={index} message={message} />
             ))}
           </div>
           <div className="w-full flex flex-col gap-4 py-6 border-t border-gray-100">
@@ -916,11 +918,11 @@ const OnGoingChat = ({ setStarted }: any) => {
   );
 };
 
-export const CardCall = ({ setStarted }: any) => {
+const CardCallComponent = ({ setStarted }: any) => {
   return (
-    <Chat setStarted={setStarted} className="w-full">
+    <ChatComponent setStarted={setStarted} className="w-full">
       <OnGoingChat setStarted={setStarted} />
-    </Chat>
+    </ChatComponent>
   );
 };
 
@@ -944,11 +946,11 @@ export default function ChatPage(): ReactNode {
         <div className="flex flex-col gap-4">
           <div className="w-full flex-col md:flex-row flex gap-6">
             {started ? (
-              <CardCall setStarted={setStarted} />
+              <CardCallComponent setStarted={setStarted} />
             ) : (
               <>
                 <UserList />
-                <Chat setStarted={setStarted} />
+                <ChatComponent setStarted={setStarted} />
               </>
             )}
           </div>
