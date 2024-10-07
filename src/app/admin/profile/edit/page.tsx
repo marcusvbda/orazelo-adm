@@ -81,7 +81,7 @@ export default function EditProfilePage(): ReactNode {
                   className="text-gray-400"
                 />
               </InputRow>
-              <InputRow label="Religião">
+              <InputRow label="Região">
                 <div className="relative w-full">
                   <div className="absolute left-3 top-[50%] translate-y-[-50%]">
                     <AspectRatio src="/br-flag.svg" size={{ height: 16 }} />

@@ -2,19 +2,14 @@
 
 import { useEffect, useState } from "react";
 
-interface IProps {
-  items: string[];
-  value: number;
-  className?: string;
-  onChange?: (value: number) => void;
-}
-
 export default function Tabs({
   value,
   items,
   onChange,
   className = "",
-}: IProps) {
+  itemClassName = "",
+  itemSelectedClassName = "",
+}: any) {
   const [selected, setSelected] = useState(value);
 
   useEffect(() => {
@@ -27,9 +22,9 @@ export default function Tabs({
         <div
           key={index}
           onClick={() => setSelected(index)}
-          className={`text-sm text-neutral-600 pb-3 transition-all duration-300 ${
+          className={`text-sm text-neutral-600 pb-3 transition-all duration-300 ${itemClassName} ${
             index === selected
-              ? "text-primary border-b-2 border-primary-300"
+              ? `text-primary border-b-2 border-primary-300 ${itemSelectedClassName}`
               : "cursor-pointer"
           }`}
         >
