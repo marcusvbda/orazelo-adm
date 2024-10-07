@@ -134,7 +134,7 @@ const PreferencesSettings = () => {
       >
         <div className="flex flex-row gap-2 mb-4">
           <Switch value={true} />
-          <div className="flex-1 flex flex-col gap-2 mb-2 md:mb-0">
+          <div className="flex-1 flex flex-col gap-1 mb-2 md:mb-0">
             <h4 className="text-neutral-700">Atendimento por vídeo</h4>
             <small className="text-xs text-neutral-400">
               Desative caso não queira receber solicitações de consulta por
@@ -144,7 +144,7 @@ const PreferencesSettings = () => {
         </div>
         <div className="flex flex-row gap-2">
           <Switch value={false} />
-          <div className="flex-1 flex flex-col gap-2 mb-2 md:mb-0">
+          <div className="flex-1 flex flex-col gap-1 mb-2 md:mb-0">
             <h4 className="text-neutral-700">Atendimento por telefone</h4>
             <small className="text-xs text-neutral-400">
               Desative caso não queira receber solicitações de consulta por
@@ -159,7 +159,7 @@ const PreferencesSettings = () => {
       >
         <div className="flex flex-row gap-2 mb-4">
           <Switch value={true} />
-          <div className="flex-1 flex flex-col gap-2 mb-2 md:mb-0">
+          <div className="flex-1 flex flex-col gap-1 mb-2 md:mb-0">
             <h4 className="text-neutral-700">Comunicação via chat</h4>
             <small className="text-xs text-neutral-400">
               Desative esta opção para não receber comunicações por chat
@@ -174,7 +174,7 @@ const PreferencesSettings = () => {
       >
         <div className="flex flex-row gap-2 mb-4">
           <Switch value={false} />
-          <div className="flex-1 flex flex-col gap-2 mb-2 md:mb-0">
+          <div className="flex-1 flex flex-col gap-1 mb-2 md:mb-0">
             <h4 className="text-neutral-700">Taxa de cancelamento</h4>
             <small className="text-xs text-neutral-400">
               Desative essa opção caso não queira cobrar uma taxa para
@@ -219,6 +219,104 @@ const PreferencesSettings = () => {
             Notifique-me de de ajustar semestralmente
           </label>
         </label>
+      </InputRow>
+      <div className="flex justify-end mt-4">
+        <button className="btn link">Descartar</button>
+        <button className="btn primary small">Salvar alterações</button>
+      </div>
+    </>
+  );
+};
+
+const TimingSettings = () => {
+  return (
+    <>
+      <InputRow
+        title="Disponibilidade semanal"
+        description="Desmarque os dias em que você não estará disponível para consultas."
+      >
+        <div className="flex flex-col gap-2">
+          {[
+            "Domingo",
+            "Segunda",
+            "Terça",
+            "Quarta",
+            "Quinta",
+            "Sexta",
+            "Sabado",
+          ].map((day: string, index: number) => (
+            <label className="flex items-center" key={index}>
+              <input
+                checked
+                type="checkbox"
+                className="w-4 h-4 border-gray-300 rounded"
+              />
+              <label className="ml-2 text-neutral-700">{day}</label>
+            </label>
+          ))}
+        </div>
+      </InputRow>
+      <InputRow
+        title="Lembretes"
+        description="Ative lembretes para ser notificado quando o expediente estiver perto do fim."
+      >
+        <div className="flex flex-row gap-2">
+          <Switch value={true} />
+          <div className="flex-1 flex flex-col gap-1 mb-2 md:mb-0">
+            <h4 className="text-neutral-700">Lembrete</h4>
+            <small className="text-xs text-neutral-400">
+              Desative esta opção para não receber lembretes.
+            </small>
+          </div>
+        </div>
+      </InputRow>
+      <InputRow
+        title="Horários de atendimento"
+        description="Defina os horários de início e término para cada dia de atendimento."
+      >
+        <div className="flex flex-col md:flex-row gap-2">
+          <div className="flex-1 mb-2 md:mb-0">
+            <label className="text-neutral-700">Início do expediente</label>
+            <select className="mt-2">
+              <option>08:00</option>
+            </select>
+          </div>
+          <div className="flex-1">
+            <label className="text-neutral-700">Fim do expediente</label>
+            <select className="mt-2">
+              <option>18:00</option>
+            </select>
+          </div>
+        </div>
+      </InputRow>
+      <InputRow
+        title="Intervalos"
+        description="Adicione intervalos para pausas durante o dia, como horário de almoço.."
+      >
+        <div className="flex flex-row gap-2 mb-4">
+          <Switch value={true} />
+          <div className="flex-1 flex flex-col gap-1 mb-2 md:mb-0">
+            <h4 className="text-neutral-700">Comunicação via chat</h4>
+            <small className="text-xs text-neutral-400">
+              Desative esta opção para não receber comunicações por chat
+              privado.
+            </small>
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-2">
+          <div className="flex-1 mb-2 md:mb-0">
+            <label className="text-neutral-700">Início do intervalo</label>
+            <select className="mt-2">
+              <option>12:00</option>
+            </select>
+          </div>
+          <div className="flex-1">
+            <label className="text-neutral-700">Fim do intervalo</label>
+            <select className="mt-2">
+              <option>13:00</option>
+            </select>
+          </div>
+        </div>
       </InputRow>
       <div className="flex justify-end mt-4">
         <button className="btn link">Descartar</button>
@@ -292,7 +390,7 @@ const DisableAccount = () => {
 };
 
 export default function SettingsPage(): ReactNode {
-  const [tab, setTab] = useState(1);
+  const [tab, setTab] = useState(0);
   const tabsOptions = useMemo(() => ["Geral", "Preferências", "Horários"], []);
 
   return (
@@ -325,6 +423,7 @@ export default function SettingsPage(): ReactNode {
             </h4>
             {tab === 0 && <GeneralSettings />}
             {tab === 1 && <PreferencesSettings />}
+            {tab === 2 && <TimingSettings />}
           </Card>
           {tab === 0 && <DisableAccount />}
         </div>
