@@ -6,7 +6,7 @@ import Card from "@/components/Card";
 import Navbar from "@/components/navbar";
 import RateStarsInput from "@/components/RateStartsInput";
 import Link from "next/link";
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 
 export default function SettingsPage(): ReactNode {
   const rows = useMemo(

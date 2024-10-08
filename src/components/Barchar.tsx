@@ -6,6 +6,7 @@ interface IProps {
   data: any;
   width?: number;
   height?: number;
+  step?: null | number;
   callbackRenderAxisY?: (value: string) => ReactNode;
 }
 
@@ -13,6 +14,7 @@ export default function Barchart({
   data,
   width = 50,
   height = 50,
+  step = null,
   callbackRenderAxisY,
 }: IProps): ReactNode {
   const keys = useMemo(() => {
@@ -28,6 +30,16 @@ export default function Barchart({
     const maxValue = Math.max(...values);
     const min = minValue > 0 ? 0 : minValue;
     const max = Math.ceil(maxValue);
+    if (step) {
+      const range = maxValue - minValue;
+      const numDivisions = 5;
+      const step = range / (numDivisions - 1);
+      return Array.from(
+        { length: numDivisions },
+        (_, i) => maxValue - i * step
+      ).sort((a, b) => b - a);
+    }
+
     return Array.from({ length: max - min + 1 }, (_, i) => i + min)
       .sort((a, b) => b - a)
       .filter((x) => x);
