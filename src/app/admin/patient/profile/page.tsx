@@ -3,7 +3,9 @@ import AspectRatio from "@/components/AspectRatio";
 import BackLink from "@/components/back-link";
 import Barchart from "@/components/Barchar";
 import Card from "@/components/Card";
+import Modal from "@/components/Modal";
 import Navbar from "@/components/navbar";
+import RateStarsInput from "@/components/RateStartsInput";
 import Tabs from "@/components/Tabs";
 import Timeline from "@/components/Timeline";
 import Link from "next/link";
@@ -30,9 +32,7 @@ const HeaderProfile = ({ children }: any): ReactNode => {
               <AspectRatio src="/cert.svg" size={{ height: 21 }} />
             </span>
             <div className="ml-0 md:ml-auto items-center justify-center flex gap-2 order-0 md:order-1">
-              <Link href="#" className="btn small primary !px-10">
-                Avaliar
-              </Link>
+              <NewAvaliation />
             </div>
           </h4>
           <div className="flex items-center gap-2 flex-wrap">
@@ -110,7 +110,7 @@ const HistoryComponent = (): ReactNode => {
         {tasks.map((task, key) => (
           <div
             className="flex flex-row w-full gap-4 b-gray-100 border-b border-dashed border-gray-100 pb-4"
-            key={key}
+            key={`${key}_his`}
           >
             <div className="flex flex-col">
               <strong className="text-primary">{task.text}</strong>
@@ -121,6 +121,162 @@ const HistoryComponent = (): ReactNode => {
         ))}
       </div>
     </Card>
+  );
+};
+
+const NewAvaliation = () => {
+  return (
+    <Modal
+      source={<button className="btn primary small">Avaliar</button>}
+      title="Avalie o paciente"
+      cardClassName="max-h-screen overflow-y-auto"
+    >
+      <div className="flex flex-col gap-4 px-4">
+        <div className="flex flex-col gap-2 items-center justify-center">
+          <RateStarsInput />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            Título da avaliação
+          </label>
+          <input type="text" className="w-full" />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            Motivo
+          </label>
+          <div className="w-full flex-col flex md:flex-row gap-2">
+            <textarea rows={5} className="w-full text-gray-400"></textarea>
+          </div>
+        </div>
+        <div className="flex gap-4 justify-between mt-4 flex-col md:flex-row">
+          <button className="btn gray order-0 md:order-1 w-full md:w-auto">
+            Voltar
+          </button>
+          <button className="btn primary !px-14 w-full order-0 md:order-1 md:w-auto">
+            Próximo
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
+const NewAnotation = () => {
+  return (
+    <Modal
+      source={
+        <button className="btn primary !size-10 !max-w-10 !max-h-10">+</button>
+      }
+      title="Nova anotação"
+      cardClassName="max-h-screen overflow-y-auto"
+    >
+      <div className="flex flex-col gap-4 px-4">
+        <div className="flex flex-col gap-2">
+          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            Anotação
+          </label>
+          <div className="w-full flex-col flex md:flex-row gap-2">
+            <textarea rows={5} className="w-full text-gray-400"></textarea>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            Data da consulta
+          </label>
+          <div className="w-full flex-col flex md:flex-row gap-2">
+            <input type="date" className="w-full" defaultValue={"2024-07-22"} />
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            Cor da anotação
+          </label>
+          <div className="w-full wrap flex gap-3">
+            <div className="cursor-pointer size-14 rounded bg-[#FDBA74]" />
+            <div className="cursor-pointer size-14 rounded bg-[#D92D20]" />
+            <div className="cursor-pointer size-14 rounded bg-[#059669]" />
+            <div className="cursor-pointer size-14 rounded bg-[#00BAC9]" />
+          </div>
+        </div>
+        <div className="flex gap-4 justify-between mt-4 flex-col md:flex-row">
+          <button className="btn gray order-0 md:order-1 w-full md:w-auto">
+            Cancelar
+          </button>
+          <button className="btn primary !px-14 w-full order-0 md:order-1 md:w-auto">
+            Adicionar
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
+const NewTask = () => {
+  return (
+    <Modal
+      source={<button className="btn primary small">Adicionar novo</button>}
+      title="Enviar tarefa"
+      cardClassName="max-h-screen overflow-y-auto"
+    >
+      <div className="flex flex-col gap-4 px-4">
+        <div className="flex flex-col gap-2">
+          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            Tarefa
+          </label>
+          <select className="w-full">
+            <option>Emoções</option>
+          </select>
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            Descrição
+          </label>
+          <div className="w-full flex-col flex md:flex-row gap-2">
+            <textarea rows={5} className="w-full text-gray-400">
+              Marcar emoções diariamente no aplicativo
+            </textarea>
+          </div>
+        </div>
+        <div className="flex gap-4">
+          <div className="w-full md:w-6/12 flex flex-col gap-2">
+            <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+              Data da inicial
+            </label>
+            <div className="w-full flex-col flex md:flex-row gap-2">
+              <div className="relative w-full">
+                <div className="absolute  left-3 top-[13px]">
+                  <AspectRatio src="/calendar-gray.svg" size={{ height: 20 }} />
+                </div>
+                <input
+                  type="date"
+                  defaultValue="2024-07-19"
+                  className="text-gray-400 !pl-10 w-full"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="w-full md:w-6/12  flex flex-col gap-2">
+            <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+              Data final
+            </label>
+            <input
+              type="date"
+              defaultValue="2024-07-19"
+              className="text-gray-400 "
+            />
+          </div>
+        </div>
+        <div className="flex gap-4 justify-between mt-4 flex-col md:flex-row">
+          <button className="btn link order-0 md:order-1 w-full md:w-auto">
+            Voltar
+          </button>
+          <button className="btn primary !px-14 w-full order-0 md:order-1 md:w-auto">
+            Próximo
+          </button>
+        </div>
+      </div>
+    </Modal>
   );
 };
 
@@ -136,7 +292,7 @@ const TaskList = (): ReactNode => {
             2 tarefas ativas atualmente
           </small>
         </div>
-        <button className="btn primary small">Adicionar novo</button>
+        <NewTask />
       </div>
       <div className="flex flex-col gap-4 mb-6 w-full md:flex-row">
         <div className="w-full md:w-6/12 border border-gray-300 p-4 rounded-lg">
@@ -248,7 +404,7 @@ const Emotions = (): ReactNode => {
         </div>
         <div className="flex flex-col gap-6 mb-6">
           <Barchart
-            height={46}
+            height={52}
             width={30}
             data={{
               jan: 3.5,
@@ -309,16 +465,19 @@ const Notes = (): ReactNode => {
   return (
     <div className="w-full md:w-6/12">
       <Card className="px-8 py-6 bg-center mt-4">
-        <div className="flex flex-col mb-8">
-          <h4 className="text-neutral-600 text-lg flex items-center justify-between">
-            Anotações
-          </h4>
-          <small className="text-neutral-400 text-xs">
-            Anotações do psicólogo
-          </small>
+        <div className="w-full flex justify-between">
+          <div className="flex flex-col mb-8">
+            <h4 className="text-neutral-600 text-lg flex items-center justify-between">
+              Anotações
+            </h4>
+            <small className="text-neutral-400 text-xs">
+              Anotações do psicólogo
+            </small>
+          </div>
+          <NewAnotation />
         </div>
         <div className="flex flex-col gap-6 mb-6">
-          <Timeline titleClass="!text-neutral-400" size="20" items={items} />
+          <Timeline titleClass="!text-neutral-400" size={80} items={items} />
         </div>
       </Card>
     </div>

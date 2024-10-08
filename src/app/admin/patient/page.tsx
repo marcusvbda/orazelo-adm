@@ -4,6 +4,7 @@ import AspectRatio from "@/components/AspectRatio";
 import BackLink from "@/components/back-link";
 import Card from "@/components/Card";
 import Navbar from "@/components/navbar";
+import RateStarsInput from "@/components/RateStartsInput";
 import Link from "next/link";
 import { ReactNode, useMemo, useState } from "react";
 
@@ -140,20 +141,7 @@ export const TableRow = ({ row }: any) => {
       </div>
       <div className="w-full md:w-2/12 flex text-primary items-center text-sm font-semibold flex-col">
         <div className="flex flex-row">
-          {Array.from({ length: row.rate }).map((_, index) => (
-            <svg
-              width="15"
-              height="14"
-              viewBox="0 0 15 14"
-              fill="none"
-              key={index}
-            >
-              <path
-                d="M6.77447 0.463525C6.92415 0.00286961 7.57585 0.00287008 7.72553 0.463525L9.04611 4.52786C9.11305 4.73388 9.30503 4.87336 9.52164 4.87336L13.7951 4.87336C14.2795 4.87336 14.4809 5.49316 14.089 5.77786L10.6317 8.28976C10.4565 8.41709 10.3831 8.64277 10.4501 8.84878L11.7706 12.9131C11.9203 13.3738 11.3931 13.7568 11.0012 13.4721L7.54389 10.9602C7.36865 10.8329 7.13135 10.8329 6.95611 10.9602L3.49877 13.4721C3.10692 13.7568 2.57968 13.3738 2.72935 12.9131L4.04994 8.84878C4.11687 8.64277 4.04355 8.41709 3.8683 8.28976L0.410968 5.77786C0.0191114 5.49316 0.220499 4.87336 0.704861 4.87336L4.97836 4.87336C5.19497 4.87336 5.38695 4.73388 5.45389 4.52786L6.77447 0.463525Z"
-                fill="#FDBA74"
-              />
-            </svg>
-          ))}
+          <RateStarsInput value={3} size={16} disabled={true} />
         </div>
         <div className="text-gray-400 text-xs mt-1">Avaliações</div>
       </div>

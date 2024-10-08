@@ -50,11 +50,11 @@ export default function Barchart({
     >
       {heightList.map((x: any, i: number) => (
         <div
-          key={i}
+          key={`${i}_x`}
           className="flex flex-row flex-1 border-b border-dashed border-gray-200 items-center"
         >
           <div
-            key={i}
+            key={`${i}_y`}
             style={{
               top: `${height / 2}px`,
               left: `-${height / 2}px`,
@@ -65,7 +65,7 @@ export default function Barchart({
           </div>
           {keys.map((y: any, z: number) => (
             <div
-              key={i}
+              key={`${z}_x_y`}
               className="flex-1 flex items-center relative"
               style={{ height: `${height}px` }}
             >
