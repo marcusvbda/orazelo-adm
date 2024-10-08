@@ -4,10 +4,13 @@ import AspectRatio from "@/components/AspectRatio";
 import BackLink from "@/components/back-link";
 import Card from "@/components/Card";
 import Navbar from "@/components/navbar";
-import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 export default function ContentPage(): ReactNode {
+  const [value, setValue] = useState("");
+
   return (
     <div className="flex flex-col">
       <Navbar
@@ -32,7 +35,7 @@ export default function ContentPage(): ReactNode {
                 </small>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-2 mt-10">
+            <div className="flex flex-col md:flex-row gap-2 mt-10 mb-4">
               <div className="w-full md:w-6/12">
                 <label className="w-full md:w-5/12 text-neutral-600 text-sm">
                   Título
@@ -52,17 +55,19 @@ export default function ContentPage(): ReactNode {
                 </select>
               </div>
             </div>
-            <div className="w-full">
+            <div className="w-full mb-4">
               <label className="w-full md:w-5/12 text-neutral-600 text-sm">
                 Descrição
               </label>
-              <textarea rows={5} className="w-full text-gray-400">
-                Explore o poder dos testes de autoconhecimento, como o mapa da
+              <textarea
+                rows={5}
+                className="w-full text-gray-400"
+                defaultValue=" Explore o poder dos testes de autoconhecimento, como o mapa da
                 linguagem do amor e o mapa da tríade, e descubra como essas
                 ferramentas podem iluminar sua jornada de autoexploração.
                 Desbloqueie insights profundos sobre sua personalidade e melhore
-                suas relações interpessoais para uma vida mais rica e autêntica.
-              </textarea>
+                suas relações interpessoais para uma vida mais rica e autêntica."
+              />
             </div>
             <div className="flex gap-4">
               <div className="w-full md:w-6/12 flex flex-col gap-2">
@@ -96,9 +101,12 @@ export default function ContentPage(): ReactNode {
                 />
               </div>
             </div>
+            <div className="my-4 w-full">
+              <ReactQuill value={value} onChange={setValue} />
+            </div>
             <div className="w-full">
               <label className="text-sm text-neutral-600 flex items-center gap-2 my-10">
-                <input checked type="checkbox" />
+                <input defaultChecked={true} type="checkbox" />
                 Ativo
               </label>
             </div>

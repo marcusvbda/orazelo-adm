@@ -200,3 +200,19 @@ a {
     @apply text-gray-700 text-2xl px-3;
   }
 }
+
+.quill {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  .ql-toolbar {
+    border: none !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+  }
+  .ql-container {
+    border: none !important;
+  }
+  .ql-editor {
+    height: 350px !important;
+  }
+}
