@@ -65,6 +65,10 @@ a {
     @apply bg-red-600 border-red-600  text-white;
   }
 
+  &.danger-ghost {
+    @apply bg-red-600/30 border-red-600/30  text-red-600;
+  }
+
   &.white {
     @apply bg-white text-primary;
   }
