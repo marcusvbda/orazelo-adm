@@ -11,8 +11,7 @@ import ScheduleCheckups from "@/components/ScheduleCheckups";
 import SpecialtiesCards from "@/components/SpecialtieCards";
 import Tabs from "@/components/Tabs";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { ReactNode, useEffect, useMemo, useState } from "react";
+import { ReactNode, useMemo, useState } from "react";
 
 const ProfileAvatar = (): ReactNode => {
   return (

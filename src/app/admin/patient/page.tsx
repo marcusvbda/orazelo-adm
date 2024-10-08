@@ -119,7 +119,7 @@ export default function SettingsPage(): ReactNode {
   );
 }
 
-export const TableRow = ({ row }: any) => {
+const TableRow = ({ row }: any) => {
   return (
     <div className="flex flex-col md:flex-row w-full gap-2 md:gap-0 border-b pb-6 md:pb-0 md:border-0 border-gray-100 mb-4">
       <div className="w-full md:w-4/12 flex items-center gap-6">

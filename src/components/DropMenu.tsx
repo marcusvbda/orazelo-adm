@@ -6,7 +6,7 @@ import { createPortal } from "react-dom";
 export const DropMenuItem = ({ children, onClick = null }: any) => {
   return (
     <div
-      className="w-28 text-end cursor-pointer text-neutral-500 hover:text-neutral-700 transition-all duration-200 px-4 py-1"
+      className="w-28 text-center cursor-pointer text-neutral-500 hover:text-neutral-700 transition-all duration-200 px-4 py-1"
       onClick={onClick && onClick}
     >
       {children}
@@ -18,6 +18,7 @@ export default function DropMenu({
   children,
   source,
   className = "",
+  portalClassName = "",
 }: any): ReactNode {
   const [visible, setVisible] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
@@ -38,7 +39,7 @@ export default function DropMenu({
   return (
     <div
       className={className}
-      onMouseEnter={() => setVisible(true)}
+      onClick={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
     >
       <div ref={menuRef} className="relative inline-block text-left">
@@ -47,7 +48,7 @@ export default function DropMenu({
           createPortal(
             <div
               ref={contentRef}
-              className="fixed z-10 rounded-md bg-white dark:bg-surface-secondary dark:border dark:border-gray-100/5 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className={`fixed z-10 rounded-md bg-white overflow-hidden dark:bg-surface-secondary dark:border dark:border-gray-100/5 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${portalClassName}`}
               style={{
                 top: `${menuPosition.top}px`,
                 left: `${menuPosition.left}px`,
