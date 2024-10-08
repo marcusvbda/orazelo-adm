@@ -4,14 +4,17 @@ import { ReactNode, useMemo } from "react";
 
 interface IProps {
   data: any;
+  width?: number;
+  height?: number;
   callbackRenderAxisY?: (value: string) => ReactNode;
 }
 
 export default function Barchart({
   data,
+  width = 50,
+  height = 50,
   callbackRenderAxisY,
 }: IProps): ReactNode {
-  const size = 50;
   const keys = useMemo(() => {
     return Object.keys(data);
   }, [data]);
@@ -32,7 +35,7 @@ export default function Barchart({
 
   const calcPercentHeight = (value: number) => {
     const percent = (value / heightList[0]) * 100;
-    const totalH = (heightList.length - 1) * size;
+    const totalH = (heightList.length - 1) * height;
     return (totalH * percent) / 100;
   };
 
@@ -43,7 +46,7 @@ export default function Barchart({
   return (
     <div
       className="w-full flex flex-col  mb-14 pl-6"
-      style={{ height: `${heightList.length * size}px` }}
+      style={{ height: `${heightList.length * height}px` }}
     >
       {heightList.map((x: any, i: number) => (
         <div
@@ -53,8 +56,8 @@ export default function Barchart({
           <div
             key={i}
             style={{
-              top: `${size / 2}px`,
-              left: `-${size / 2}px`,
+              top: `${height / 2}px`,
+              left: `-${height / 2}px`,
             }}
             className="flex-1 flex items-center relative text-sm text-neutral-400"
           >
@@ -64,20 +67,20 @@ export default function Barchart({
             <div
               key={i}
               className="flex-1 flex items-center relative"
-              style={{ height: `${size}px` }}
+              style={{ height: `${height}px` }}
             >
               {heightList.length - 1 === i && (
                 <>
                   <div
                     className="absolute items-center text-center justify-center flex text-neutral-400 text-sm"
-                    style={{ top: `${size * 1.2}px`, width: `${size}px` }}
+                    style={{ top: `${height * 1.2}px`, width: `${width}px` }}
                   >
                     {handleRenderAxisY(y)}
                   </div>
                   <div
                     className={`bg-primary h-[10px] absolute rounded-tl-lg rounded-tr-lg`}
                     style={{
-                      width: `${size}px`,
+                      width: `${width}px`,
                       height: `${calcPercentHeight(values[z])}px`,
                       bottom: 0,
                     }}

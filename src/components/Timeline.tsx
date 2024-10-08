@@ -12,11 +12,20 @@ export const TimelineTitle = ({ title, description }: any): ReactNode => {
   );
 };
 
-export default function Timeline({ items }: any): ReactNode {
+export default function Timeline({
+  items,
+  size = 28,
+  titleClass = "",
+}: any): ReactNode {
   return (
     <div className="flex flex-col w-full">
       {items.map((item: any, index: number) => (
         <div key={index} className="flex w-full">
+          {item.pre && (
+            <div className="mr-4 top-2 relative text-sm font-semibold text-neutral-700">
+              {item.pre}
+            </div>
+          )}
           <div
             className={`size-9 min-size-9 bg-gray-100 rounded-full flex items-center justify-center z-10 ${
               item.iconClassName || ""
@@ -28,10 +37,10 @@ export default function Timeline({ items }: any): ReactNode {
           <div
             className={`relative left-[-18px] pl-8 flex-1 ${
               items.length - 1 !== index &&
-              "min-h-28 border-l border-dashed border-gray-300 "
+              `min-h-${size} border-l border-dashed border-gray-300`
             }`}
           >
-            <div className="flex items-center">
+            <div className={`flex items-center ${titleClass}`}>
               {item.title}
               {item.post && <div className="ml-auto">{item.post}</div>}
             </div>
