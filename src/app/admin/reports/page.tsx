@@ -46,7 +46,149 @@ export default function ReportsPage(): ReactNode {
           </div>
           <div className="flex flex-col md:flex-row w-full gap-4">
             <div className="w-full md:w-4/12 flex flex-col gap-4">
-              <Card>perfil</Card>
+              <Card>
+                <h4 className="text-neutral-800 font-semibold text-lg">
+                  Perfil
+                </h4>
+                <div className="w-full flex flex-col my-4 items-center justify-center">
+                  <div
+                    className="size-32 rounded-full  bg-cover mb-4 border-4 border-primary relative"
+                    style={{ backgroundImage: `url(/user-5.svg)` }}
+                  >
+                    <svg
+                      width="33"
+                      height="32"
+                      viewBox="0 0 33 32"
+                      fill="none"
+                      className="absolute right-0 bottom-0"
+                    >
+                      <rect
+                        x="0.833984"
+                        width="32"
+                        height="32"
+                        rx="16"
+                        fill="#00959E"
+                      />
+                      <path
+                        opacity="0.3"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M16.3413 11.8754L10.168 18.6662H23.5013L17.3279 11.8754C17.0803 11.603 16.6586 11.5829 16.3862 11.8306C16.3705 11.8448 16.3556 11.8598 16.3413 11.8754Z"
+                        fill="white"
+                      />
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M16.8384 18.4739L22.355 12.568C22.6064 12.299 23.0282 12.2846 23.2973 12.5359C23.4323 12.662 23.5089 12.8384 23.5089 13.0231V21.3328H19.5089H10.168V13.0231C10.168 12.8384 10.2446 12.662 10.3796 12.5359C10.6486 12.2846 11.0705 12.299 11.3218 12.568L16.8384 18.4739Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div className="text-gray-400 text-sm">Dra.</div>
+                  <div className="text-gray-700 text-sm font-semibold">
+                    Vera Roberta
+                  </div>
+                  <div className="w-full px-8 flex flex-row gap-2 items-center justify-center mt-4">
+                    <div className="border border-gray-200 p-1 rounded-lg px-2 text-sm font-semibold flex items-center gap-1">
+                      <svg
+                        width="21"
+                        height="20"
+                        viewBox="0 0 21 20"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.848 7.5H13.329C12.403 7.5 11.5528 8.01188 11.1195 8.83025L10.6286 9.75758C10.554 9.89842 10.5896 10.0723 10.7135 10.1726L11.0338 10.4319C11.5529 10.8521 11.9633 11.3909 12.2306 12.0029L12.3604 12.3001C12.4134 12.4215 12.5333 12.5 12.6659 12.5H16.0625C16.9417 12.5 17.505 11.5645 17.0936 10.7875L16.0574 8.83025C15.6242 8.01188 14.774 7.5 13.848 7.5Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          opacity="0.3"
+                          d="M15.5013 5.00065C15.5013 4.08018 14.7551 3.33398 13.8346 3.33398C12.9142 3.33398 12.168 4.08018 12.168 5.00065C12.168 5.92113 12.9142 6.66732 13.8346 6.66732C14.7551 6.66732 15.5013 5.92113 15.5013 5.00065Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          d="M4.3783 12.3799C5.00249 10.9353 6.42559 10 7.99925 10C9.57292 10 10.996 10.9353 11.6202 12.3799L12.8268 15.1722C13.3023 16.2726 12.4955 17.5 11.2968 17.5H4.70168C3.50303 17.5 2.69628 16.2726 3.17173 15.1722L4.3783 12.3799Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          opacity="0.3"
+                          d="M10.5 6.66602C10.5 5.2853 9.38071 4.16602 8 4.16602C6.61929 4.16602 5.5 5.2853 5.5 6.66602C5.5 8.04673 6.61929 9.16602 8 9.16602C9.38071 9.16602 10.5 8.04673 10.5 6.66602Z"
+                          fill="#00BAC9"
+                        />
+                      </svg>
+                      8
+                    </div>
+                    <div className="border border-gray-200 p-1 rounded-lg px-2 text-sm font-semibold flex items-center gap-1">
+                      <svg
+                        width="21"
+                        height="20"
+                        viewBox="0 0 21 20"
+                        fill="none"
+                      >
+                        <path
+                          opacity="0.3"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M7.16732 2.5V2.91667C7.16732 3.60702 7.72696 4.16667 8.41732 4.16667H12.584C13.2743 4.16667 13.834 3.60702 13.834 2.91667V2.5H15.5007C16.4211 2.5 17.1673 3.24619 17.1673 4.16667V17.5C17.1673 18.4205 16.4211 19.1667 15.5007 19.1667H5.50065C4.58018 19.1667 3.83398 18.4205 3.83398 17.5V4.16667C3.83398 3.24619 4.58018 2.5 5.50065 2.5H7.16732Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M9.66667 1.66634C9.66667 1.2061 10.0398 0.833008 10.5 0.833008C10.9602 0.833008 11.3333 1.2061 11.3333 1.66634H12.5833C12.8135 1.66634 13 1.85289 13 2.08301V2.91634C13 3.14646 12.8135 3.33301 12.5833 3.33301H8.41667C8.18655 3.33301 8 3.14646 8 2.91634V2.08301C8 1.85289 8.18655 1.66634 8.41667 1.66634H9.66667Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          opacity="0.3"
+                          d="M13.834 7.5H9.66732C9.20708 7.5 8.83398 7.8731 8.83398 8.33333C8.83398 8.79357 9.20708 9.16667 9.66732 9.16667H13.834C14.2942 9.16667 14.6673 8.79357 14.6673 8.33333C14.6673 7.8731 14.2942 7.5 13.834 7.5Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          opacity="0.3"
+                          d="M8.00065 8.33333C8.00065 7.8731 7.62756 7.5 7.16732 7.5C6.70708 7.5 6.33398 7.8731 6.33398 8.33333C6.33398 8.79357 6.70708 9.16667 7.16732 9.16667C7.62756 9.16667 8.00065 8.79357 8.00065 8.33333Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          opacity="0.3"
+                          d="M8.00065 11.6673C8.00065 11.2071 7.62756 10.834 7.16732 10.834C6.70708 10.834 6.33398 11.2071 6.33398 11.6673C6.33398 12.1276 6.70708 12.5007 7.16732 12.5007C7.62756 12.5007 8.00065 12.1276 8.00065 11.6673Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          opacity="0.3"
+                          d="M13.834 10.834H9.66732C9.20708 10.834 8.83398 11.2071 8.83398 11.6673C8.83398 12.1276 9.20708 12.5007 9.66732 12.5007H13.834C14.2942 12.5007 14.6673 12.1276 14.6673 11.6673C14.6673 11.2071 14.2942 10.834 13.834 10.834Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          opacity="0.3"
+                          d="M8.00065 14.9993C8.00065 14.5391 7.62756 14.166 7.16732 14.166C6.70708 14.166 6.33398 14.5391 6.33398 14.9993C6.33398 15.4596 6.70708 15.8327 7.16732 15.8327C7.62756 15.8327 8.00065 15.4596 8.00065 14.9993Z"
+                          fill="#00BAC9"
+                        />
+                        <path
+                          opacity="0.3"
+                          d="M13.834 14.166H9.66732C9.20708 14.166 8.83398 14.5391 8.83398 14.9993C8.83398 15.4596 9.20708 15.8327 9.66732 15.8327H13.834C14.2942 15.8327 14.6673 15.4596 14.6673 14.9993C14.6673 14.5391 14.2942 14.166 13.834 14.166Z"
+                          fill="#00BAC9"
+                        />
+                      </svg>
+                      12
+                    </div>
+                    <div className="border border-gray-200 p-1 rounded-lg px-2 text-sm font-semibold flex items-center gap-1">
+                      <svg
+                        width="21"
+                        height="20"
+                        viewBox="0 0 21 20"
+                        fill="none"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M12.1647 5.83366C11.8869 8.61144 11.0536 10.0976 9.66471 10.2923C9.66471 10.2923 10.9147 5.41699 9.24805 2.91699C9.24805 2.91699 9.07131 5.5957 7.28554 8.81009C6.44846 10.3168 5.49805 11.3326 5.49805 13.3337C5.49805 16.1909 8.42425 17.6675 10.5028 17.6675C12.5814 17.6675 15.498 16.6675 15.498 13.1674C15.498 11.7282 14.3869 9.28358 12.1647 5.83366Z"
+                          fill="#00BAC9"
+                        />
+                      </svg>
+                      24
+                    </div>
+                  </div>
+                </div>
+              </Card>
               <TypeCard
                 icon="/color-calendar.svg"
                 title="Consultas"
@@ -64,7 +206,7 @@ export default function ReportsPage(): ReactNode {
               <div className="w-full flex flex-col md:flex-row gap-4">
                 <Card className="w-full md:w-6/12">
                   <div>
-                    <h4 className="text-neutral-600 text-lg">
+                    <h4 className="text-neutral-800 font-semibold text-lg">
                       Seus dias consecutivos
                     </h4>
                     <small className="text-neutral-400 text-sm">
@@ -175,7 +317,9 @@ export default function ReportsPage(): ReactNode {
               <Card>
                 <div className="flex flex-row justify-between">
                   <div>
-                    <h4 className="text-neutral-600 text-lg">Consultas</h4>
+                    <h4 className="text-neutral-800 text-lg font-semibold">
+                      Consultas
+                    </h4>
                     <small className="text-neutral-400 text-sm">
                       Veja a média de consultas por mês até aqui
                     </small>
