@@ -221,17 +221,13 @@ const NewTask = () => {
     >
       <div className="flex flex-col gap-4 px-4">
         <div className="flex flex-col gap-2">
-          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
-            Tarefa
-          </label>
+          <label className="w-full  text-neutral-600 text-sm">Tarefa</label>
           <select className="w-full">
             <option>Emoções</option>
           </select>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="w-full md:w-5/12 text-neutral-600 text-sm">
-            Descrição
-          </label>
+          <label className="w-full  text-neutral-600 text-sm">Descrição</label>
           <div className="w-full flex-col flex md:flex-row gap-2">
             <textarea rows={5} className="w-full text-gray-400">
               Marcar emoções diariamente no aplicativo
@@ -240,7 +236,7 @@ const NewTask = () => {
         </div>
         <div className="flex gap-4">
           <div className="w-full md:w-6/12 flex flex-col gap-2">
-            <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            <label className="w-full text-neutral-600 text-sm">
               Data da inicial
             </label>
             <div className="w-full flex-col flex md:flex-row gap-2">
@@ -257,13 +253,13 @@ const NewTask = () => {
             </div>
           </div>
           <div className="w-full md:w-6/12  flex flex-col gap-2">
-            <label className="w-full md:w-5/12 text-neutral-600 text-sm">
+            <label className="w-full text-neutral-600 text-sm">
               Data final
             </label>
             <input
               type="date"
               defaultValue="2024-07-19"
-              className="text-gray-400 "
+              className="text-gray-400"
             />
           </div>
         </div>

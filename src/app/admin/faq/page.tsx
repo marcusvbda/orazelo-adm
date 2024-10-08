@@ -56,66 +56,70 @@ export default function FaqPage() {
                 defaultOpen={true}
                 source="Como sincronizar meu calendário do sistema Orazelo com o Google Calendar?"
               >
-                Acesse Configurações de Integrações, escolha "Integração com
-                Calendário" e selecione "Sincronizar com Google Calendar". Siga
-                as instruções para autorizar a sincronização.
+                Acesse Configurações de Integrações, escolha {'"'}Integração com
+                Calendário{'"'} e selecione {'"'}Sincronizar com Google Calendar
+                {'"'}. Siga as instruções para autorizar a sincronização.
               </CollapseData>
               <CollapseData
                 source="O que preciso fazer para alcançar o status VIP?"
                 className="border-b border-gray-100 border-dashed pb-4"
               >
-                Acesse Configurações de Integrações, escolha "Integração com
-                Calendário" e selecione "Sincronizar com Google Calendar". Siga
-                as instruções para autorizar a sincronização.
+                Acesse Configurações de Integrações, escolha {'"'}Integração com
+                Calendário{'"'} e selecione {'"'}Sincronizar com Google Calendar
+                {'"'}. Siga as instruções para autorizar a sincronização.
               </CollapseData>
               <CollapseData
                 source="Como posso alterar meu idioma?"
                 className="border-b border-gray-100 border-dashed pb-4"
               >
-                Acesse Configurações de Integrações, escolha "Integração com
-                Calendário" e selecione "Sincronizar com Google Calendar". Siga
-                as instruções para autorizar a sincronização.
+                Acesse Configurações de Integrações, escolha {'"'}Integração com
+                Calendário{'"'} e selecione {'"'}Sincronizar com Google Calendar
+                {'"'}. Siga as instruções para autorizar a sincronização.
               </CollapseData>
               <CollapseData
                 source="Como ajusto meu fuso horário?"
                 className="border-b border-gray-100 border-dashed pb-4"
               >
-                Acesse Configurações de Integrações, escolha "Integração com
-                Calendário" e selecione "Sincronizar com Google Calendar". Siga
-                as instruções para autorizar a sincronização.
+                Acesse Configurações de Integrações, escolha {'"'}Integração com
+                Calendário{'"'} e selecione {'"'}Sincronizar com Google Calendar
+                {'"'}. Siga as instruções para autorizar a sincronização.
               </CollapseData>
               <CollapseData
                 source="Como visualizar e acompanhar minhas conquistas?"
                 className="border-b border-gray-100 border-dashed pb-4"
               >
-                Acesse Configurações de Integrações, escolha "Integração com
-                Calendário" e selecione "Sincronizar com Google Calendar". Siga
-                as instruções para autorizar a sincronização.
+                Acesse Configurações de Integrações, escolha {'"'}Integração com
+                Calendário{'"'} e selecione {'"'}Sincronizar com Google Calendar
+                {'"'}. Siga as instruções para autorizar a sincronização.
               </CollapseData>
               <CollapseData
                 source="Como gerenciar minhas preferências de notificação?"
                 className="border-b border-gray-100 border-dashed pb-4"
               >
-                Acesse Configurações de Integrações, escolha "Integração com
-                Calendário" e selecione "Sincronizar com Google Calendar". Siga
-                as instruções para autorizar a sincronização.
+                Acesse Configurações de Integrações, escolha {'"'}Integração com
+                Calendário{'"'} e selecione {'"'}Sincronizar com Google Calendar
+                {'"'}. Siga as instruções para autorizar a sincronização.
               </CollapseData>
               <CollapseData
                 source="Como editar minhas informações de perfil?"
                 className="border-b border-gray-100 border-dashed pb-4"
               >
-                Acesse Configurações de Integrações, escolha "Integração com
-                Calendário" e selecione "Sincronizar com Google Calendar". Siga
-                as instruções para autorizar a sincronização.
+                Acesse Configurações de Integrações, escolha {'"'}Integração com
+                Calendário{'"'} e selecione {'"'}Sincronizar com Google Calendar
+                {'"'}. Siga as instruções para autorizar a sincronização.
               </CollapseData>
             </div>
           </Card>
-          <Card className="bg-primary/20 mt-4">
+          <Card className="!bg-primary-50 mt-4">
             <h4 className="text-primary text-lg text-left w-full font-semibold">
               Ainda precisa de ajuda?
             </h4>
             <small className="text-primary/50">Entre em contato conosco</small>
-            <button className="btn primary small mt-4">Entre em contato</button>
+            <Link href="/admin/faq/requests">
+              <button className="btn primary small mt-4">
+                Entre em contato
+              </button>
+            </Link>
           </Card>
         </div>
         <div className="w-full md:w-7/12">
